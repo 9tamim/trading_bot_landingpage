@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Replace example.com with your domain. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://example.com/</loc><lastmod>2026-11-12</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://example.com/#bots</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://example.com/#sessions</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://example.com/#calculator</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://example.com/#pricing</loc><lastmod>2026-11-12</lastmod></url>
+  <url><loc>https://example.com/#faq</loc><lastmod>2026-11-12</lastmod></url>
+</urlset>

@@ -1,0 +1,245 @@
+{
+  "name": "Pipwright - Stripe payments (verify event, mark paid, send setup email)",
+  "flow": [
+    {
+      "id": 1,
+      "module": "gateway:CustomWebHook",
+      "version": 1,
+      "parameters": {
+        "hook": 0,
+        "maxResults": 1
+      },
+      "mapper": {},
+      "metadata": {
+        "designer": {
+          "x": 0,
+          "y": 0
+        },
+        "restore": {
+          "parameters": {
+            "hook": {
+              "label": "Stripe events (create or select)"
+            }
+          }
+        }
+      }
+    },
+    {
+      "id": 2,
+      "module": "http:ActionSendData",
+      "version": 3,
+      "parameters": {
+        "handleErrors": false,
+        "useNewZLibDeCompress": true
+      },
+      "mapper": {
+        "url": "https://api.stripe.com/v1/events/{{1.id}}",
+        "serializeUrl": false,
+        "method": "get",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer REPLACE_STRIPE_SECRET_KEY"
+          }
+        ],
+        "qs": [],
+        "parseResponse": true,
+        "timeout": "",
+        "shareCookies": false,
+        "ca": "",
+        "rejectUnauthorized": true,
+        "followRedirect": true,
+        "useQuerystring": false,
+        "gzip": true,
+        "useMtls": false,
+        "followAllRedirects": false
+      },
+      "metadata": {
+        "designer": {
+          "x": 600,
+          "y": 0
+        }
+      },
+      "filter": {
+        "name": "Event id present",
+        "conditions": [
+          [
+            {
+              "a": "{{1.id}}",
+              "b": "",
+              "o": "text:notequal"
+            }
+          ]
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "module": "builtin:BasicRouter",
+      "version": 1,
+      "mapper": null,
+      "metadata": {
+        "designer": {
+          "x": 600,
+          "y": 0
+        }
+      },
+      "routes": [
+        {
+          "flow": [
+            {
+              "id": 4,
+              "module": "datastore:UpdateRecord",
+              "version": 1,
+              "parameters": {
+                "datastore": 0
+              },
+              "mapper": {
+                "key": "{{2.data.data.object.client_reference_id}}",
+                "data": {
+                  "status": "paid",
+                  "stripe_customer": "{{2.data.data.object.customer}}",
+                  "amount": "{{2.data.data.object.amount_total}}"
+                }
+              },
+              "metadata": {
+                "designer": {
+                  "x": 1200,
+                  "y": 0
+                }
+              },
+              "filter": {
+                "name": "Checkout completed and paid",
+                "conditions": [
+                  [
+                    {
+                      "a": "{{2.data.type}}",
+                      "b": "checkout.session.completed",
+                      "o": "text:equal"
+                    },
+                    {
+                      "a": "{{2.data.data.object.payment_status}}",
+                      "b": "paid",
+                      "o": "text:equal"
+                    }
+                  ]
+                ]
+              }
+            },
+            {
+              "id": 5,
+              "module": "email:ActionSendEmail",
+              "version": 7,
+              "parameters": {
+                "account": 0
+              },
+              "mapper": {
+                "to": [
+                  "{{2.data.data.object.customer_details.email}}"
+                ],
+                "subject": "Payment received - your Pipwright setup",
+                "html": "<p>Thank you. Your payment for order <strong>{{2.data.data.object.client_reference_id}}</strong> is confirmed.</p><p>Next steps: 1) Connect your broker with trade-only permissions. 2) Pick a bot and a risk profile. 3) Start in paper mode, then go live when you are ready.</p><p>Forex trading on margin carries a high risk of loss.</p>"
+              },
+              "metadata": {
+                "designer": {
+                  "x": 1500,
+                  "y": 0
+                }
+              }
+            },
+            {
+              "id": 6,
+              "module": "http:ActionSendData",
+              "version": 3,
+              "parameters": {
+                "handleErrors": true,
+                "useNewZLibDeCompress": true
+              },
+              "mapper": {
+                "url": "https://hooks.slack.com/services/REPLACE/WITH/YOURS",
+                "serializeUrl": false,
+                "method": "post",
+                "headers": [],
+                "qs": [],
+                "parseResponse": true,
+                "timeout": "",
+                "shareCookies": false,
+                "ca": "",
+                "rejectUnauthorized": true,
+                "followRedirect": true,
+                "useQuerystring": false,
+                "gzip": true,
+                "useMtls": false,
+                "followAllRedirects": false,
+                "bodyType": "raw",
+                "contentType": "application/json",
+                "data": "{\"text\":\"New Pipwright payment: order {{2.data.data.object.client_reference_id}}, plan {{2.data.data.object.metadata.plan}}\"}"
+              },
+              "metadata": {
+                "designer": {
+                  "x": 1800,
+                  "y": 0
+                }
+              }
+            }
+          ]
+        },
+        {
+          "flow": [
+            {
+              "id": 7,
+              "module": "datastore:UpdateRecord",
+              "version": 1,
+              "parameters": {
+                "datastore": 0
+              },
+              "mapper": {
+                "key": "{{2.data.data.object.metadata.order_ref}}",
+                "data": {
+                  "status": "canceled"
+                }
+              },
+              "metadata": {
+                "designer": {
+                  "x": 2100,
+                  "y": 0
+                }
+              },
+              "filter": {
+                "name": "Subscription canceled",
+                "conditions": [
+                  [
+                    {
+                      "a": "{{2.data.type}}",
+                      "b": "customer.subscription.deleted",
+                      "o": "text:equal"
+                    }
+                  ]
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "metadata": {
+    "instant": true,
+    "version": 1,
+    "scenario": {
+      "roundtrips": 1,
+      "maxErrors": 3,
+      "autoCommit": true,
+      "autoCommitTriggerLast": true,
+      "sequential": false,
+      "confidential": false,
+      "dataloss": false,
+      "dlq": false,
+      "freshVariables": false
+    },
+    "designer": {
+      "orphans": []
+    },
+    "zone": "eu2.make.com"
+  }
+}
