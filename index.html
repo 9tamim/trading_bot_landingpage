@@ -1,0 +1,1158 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Pipwright AI Forex Bots</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Pipwright runs six AI forex trading bots on MetaTrader 5, cTrader and TradingView. Each bot has fixed risk rules, spread filters, a news blackout and trade-only broker access. Start in paper mode.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+<meta name="author" content="Pipwright">
+<meta name="application-name" content="Pipwright">
+<meta name="format-detection" content="telephone=no">
+<meta name="theme-color" content="#EDF0F3" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0A111C" media="(prefers-color-scheme: dark)">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Pipwright">
+<meta property="og:title" content="Pipwright: six AI forex bots, one for each market session">
+<meta property="og:description" content="Trend, scalping, range, news, carry and hedge bots for MT5, cTrader and TradingView. Paper mode first, trade-only broker access, hard risk limits.">
+<meta property="og:image:alt" content="Pipwright candlestick chart with bot entry markers and a 24-hour forex session band">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pipwright: six AI forex bots, one for each market session">
+<meta name="twitter:description" content="Run AI forex bots in paper mode first. Trade-only broker access, spread guard, news blackout and a kill switch.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=Instrument+Sans:wght@400..600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Organization", "name": "Pipwright", "description": "Pipwright makes AI-driven forex trading bots for MetaTrader 5, cTrader and TradingView.", "areaServed": "Worldwide", "knowsAbout": ["Forex trading", "Algorithmic trading", "Risk management", "Market sessions"]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Pipwright", "inLanguage": "en"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "Pipwright", "applicationCategory": "FinanceApplication", "operatingSystem": "Web, cloud", "description": "A cloud platform that runs six AI forex trading bots through MetaTrader 5, cTrader or TradingView webhooks, with trade-only broker access, fixed risk rules and a paper trading mode.", "featureList": ["Six AI forex trading bots", "Paper trading and backtesting", "Spread and slippage guard", "News blackout", "Kill switch and loss caps", "Trade journal with CSV export", "MetaTrader 5, cTrader and TradingView support"], "offers": [{"@type": "Offer", "name": "Starter", "price": "0", "priceCurrency": "USD"}, {"@type": "Offer", "name": "Pro", "price": "49", "priceCurrency": "USD"}, {"@type": "Offer", "name": "Desk", "price": "199", "priceCurrency": "USD"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "name": "Pipwright forex trading bots", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Trendline", "description": "Rides multi-day moves and cuts losing trades early. Skips ranging markets."}, {"@type": "ListItem", "position": 2, "name": "Open Range Scalper", "description": "Trades the first breakout after the London and New York opens. Stands down when spreads widen."}, {"@type": "ListItem", "position": 3, "name": "Rangekeeper", "description": "Fades the edges of quiet Asian-session ranges. Exits the moment a breakout starts."}, {"@type": "ListItem", "position": 4, "name": "Newsdesk", "description": "Reads central bank statements and data releases for surprise, then trades the first move or stays out."}, {"@type": "ListItem", "position": 5, "name": "Carry Compass", "description": "Holds the pairs with the widest rate gap in the direction of trend, and sells when risk sentiment turns."}, {"@type": "ListItem", "position": 6, "name": "Hedge Guard", "description": "Sits on top of your other bots. It limits total exposure to one currency and trims positions when drawdown rises."}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "HowTo", "name": "How to start running a Pipwright forex bot", "step": [{"@type": "HowToStep", "position": 1, "name": "Connect", "text": "Link a demo or live account on MetaTrader 5 or cTrader, or paste a TradingView webhook. Permissions are trade-only."}, {"@type": "HowToStep", "position": 2, "name": "Pick a bot and a risk profile", "text": "Choose one of the six bots and set risk per trade, daily loss cap and the pairs it may trade."}, {"@type": "HowToStep", "position": 3, "name": "Backtest and paper trade", "text": "Replay the bot on historical candles, then run it forward on live prices with simulated money for as long as you like."}, {"@type": "HowToStep", "position": 4, "name": "Go live with limits on", "text": "Switch the account to live. The kill switch, spread guard and news blackout stay on, and you can pause or close everything from your phone."}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Pipwright AI Forex Bots", "inLanguage": "en", "dateModified": "2026-11-12", "about": ["Forex trading bots", "Automated trading", "Algorithmic trading", "MetaTrader 5", "cTrader", "TradingView"], "audience": {"@type": "Audience", "audienceType": "Retail forex traders"}, "spatialCoverage": "Worldwide, subject to local regulation", "speakable": {"@type": "SpeakableSpecification", "cssSelector": ["#h1", "#what p"]}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Pipwright", "item": "#top"}, {"@type": "ListItem", "position": 2, "name": "Forex trading bots", "item": "#bots"}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is an AI forex trading bot?", "acceptedAnswer": {"@type": "Answer", "text": "An AI forex trading bot is software that analyses currency prices and news, decides when to buy or sell, and sends orders to your broker without manual clicks. Pipwright bots use machine learning to classify market conditions and read headlines, and fixed rules to size trades and limit losses."}}, {"@type": "Question", "name": "Can an AI forex bot guarantee profit?", "acceptedAnswer": {"@type": "Answer", "text": "No. No bot can guarantee profit, and forex trading on margin can lose more than your deposit. Pipwright does not publish promised returns. You can test each bot on historical data and on paper money to see how it behaves before you risk anything."}}, {"@type": "Question", "name": "Which platforms does Pipwright work with?", "acceptedAnswer": {"@type": "Answer", "text": "Pipwright connects to MetaTrader 5 and cTrader accounts, and accepts TradingView alerts through a webhook. If your broker offers one of those platforms, the bots can usually trade it."}}, {"@type": "Question", "name": "Can Pipwright withdraw money from my account?", "acceptedAnswer": {"@type": "Answer", "text": "No. You connect with trade-only permissions. Pipwright can place, modify and close orders, but it has no ability to withdraw or transfer funds. Your money stays with your broker."}}, {"@type": "Question", "name": "Do I need a VPS to run the bots?", "acceptedAnswer": {"@type": "Answer", "text": "No. The bots run on Pipwright servers, so your computer can be off. You only need an account at a supported broker."}}, {"@type": "Question", "name": "How does the risk management work?", "acceptedAnswer": {"@type": "Answer", "text": "Each trade is sized from a fixed percentage of equity and the stop distance. A spread guard blocks orders when costs jump, a news blackout pauses trading around scheduled releases, daily and weekly loss caps pause every bot, and a kill switch closes all positions."}}, {"@type": "Question", "name": "Can I try it without risking money?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The Starter plan is free and runs in paper mode on live prices with simulated funds. You can also backtest on historical data. Moving to a live account is a separate step."}}, {"@type": "Question", "name": "What is the best forex trading session for a bot?", "acceptedAnswer": {"@type": "Answer", "text": "It depends on the strategy. Trend and scalping bots favour the London session and the London and New York overlap (12:00 to 16:00 UTC) because liquidity is deepest. Range bots suit the quieter Sydney and Tokyo hours. Each Pipwright bot is scheduled for its own sessions."}}, {"@type": "Question", "name": "Is automated forex trading legal where I live?", "acceptedAnswer": {"@type": "Answer", "text": "Rules vary by country. Some regions restrict leveraged forex for retail clients, and some brokers do not accept residents of certain countries. Check your local regulator and your broker before going live. Pipwright does not give legal or tax advice."}}, {"@type": "Question", "name": "Which currency pairs are supported?", "acceptedAnswer": {"@type": "Answer", "text": "Pro and Desk support 28 major and minor pairs, such as EUR/USD, GBP/USD, USD/JPY and AUD/USD. Starter paper mode supports three pairs."}}]}</script>
+<style>
+/* Layout concept: engineered chart paper. A streaming candle chart and a live 24-hour session band carry the energy; everything else stays ruled, tabular and quiet. */
+:root{
+  --bg:#EDF0F3; --surface:#F8FAFB; --ink:#0D1726; --muted:#55627A; --line:#D2D9E2;
+  --accent:#2B4BFF; --accent-ink:#FFFFFF; --accent-soft:#E2E7FF;
+  --up:#0B7F52; --down:#C4343A; --warn:#8A5A10;
+  --grid:rgba(13,23,38,.045); --grid-strong:rgba(13,23,38,.10);
+  --f-display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --f-body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --r:6px;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0A111C; --surface:#101A2A; --ink:#E6ECF5; --muted:#94A1B9; --line:#22314A;
+    --accent:#7B92FF; --accent-ink:#0A111C; --accent-soft:#18244A;
+    --up:#3CCB8F; --down:#F26D6D; --warn:#E0AE55;
+    --grid:rgba(230,236,245,.04); --grid-strong:rgba(230,236,245,.09);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0A111C; --surface:#101A2A; --ink:#E6ECF5; --muted:#94A1B9; --line:#22314A;
+  --accent:#7B92FF; --accent-ink:#0A111C; --accent-soft:#18244A;
+  --up:#3CCB8F; --down:#F26D6D; --warn:#E0AE55;
+  --grid:rgba(230,236,245,.04); --grid-strong:rgba(230,236,245,.09);
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background-color:var(--bg);
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:32px 32px;
+  color:var(--ink); font:400 16px/1.6 var(--f-body); -webkit-font-smoothing:antialiased;
+  padding-block:0;
+  padding-left:max(16px,env(safe-area-inset-left,0px));
+  padding-right:max(16px,env(safe-area-inset-right,0px));
+}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
+.page{max-width:1180px;margin-inline:auto}
+h1,h2,h3,h4{font-family:var(--f-display);margin:0;text-wrap:balance;letter-spacing:-.02em;line-height:1.08}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:3px}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:var(--bg);padding:8px 12px;z-index:100}
+.skip:focus{left:8px}
+.mono{font-family:var(--f-mono)}
+.eyebrow{font:500 12px/1.3 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.num{font-variant-numeric:tabular-nums}
+
+/* header */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
+.top-in{display:flex;align-items:center;gap:20px;padding-block:12px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font:800 21px/1 var(--f-display);letter-spacing:-.03em}
+.brand svg{width:26px;height:26px;flex:none}
+.nav{display:flex;gap:22px;margin-left:auto;font-size:14px}
+.nav a{text-decoration:none;color:var(--muted);padding:6px 0;border-bottom:2px solid transparent}
+.nav a:hover{color:var(--ink);border-bottom-color:var(--accent)}
+.top-actions{display:flex;gap:10px;align-items:center}
+@media (max-width:980px){.nav{display:none}.top-actions{margin-left:auto}}
+.theme{font:500 12px var(--f-mono);letter-spacing:.06em;text-transform:uppercase;background:transparent;color:var(--muted);border:1px solid var(--line);border-radius:var(--r);padding:8px 10px;cursor:pointer}
+.theme:hover{color:var(--ink);border-color:var(--ink)}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 18px;border-radius:var(--r);font:600 15px/1 var(--f-body);border:1px solid var(--ink);text-decoration:none;cursor:pointer;background:transparent;color:var(--ink);transition:transform .15s,background .15s,border-color .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn-primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn-sm{padding:9px 14px;font-size:14px}
+
+/* sections */
+.section{padding-block:clamp(44px,7vw,88px);border-top:1px solid var(--line);scroll-margin-top:72px}
+.section-head{display:grid;gap:14px;max-width:760px;margin-bottom:clamp(24px,4vw,44px)}
+.section-head h2{font-size:clamp(28px,4.2vw,46px);font-weight:700}
+.lede{color:var(--muted);font-size:clamp(16px,1.6vw,18px);max-width:62ch}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:clamp(28px,5vw,64px);align-items:center;padding-block:clamp(32px,6vw,76px) clamp(28px,4vw,48px)}
+@media (max-width:940px){.hero{grid-template-columns:minmax(0,1fr)}}
+.hero h1{font-size:clamp(38px,6.2vw,74px);font-weight:800;letter-spacing:-.035em;margin-block:16px 20px}
+.hero h1 em{font-style:normal;color:var(--accent)}
+.hero .lede{margin-bottom:26px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:18px}
+.fine{font-size:13px;color:var(--muted);max-width:54ch}
+.term{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:0 28px 50px -32px rgba(0,0,0,.45)}
+.term-head{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;padding:10px 12px;border-bottom:1px solid var(--line)}
+.pairs{display:flex;flex-wrap:wrap;gap:6px}
+.pairbtn{font:500 12px var(--f-mono);padding:6px 9px;border:1px solid var(--line);border-radius:4px;background:transparent;color:var(--muted);cursor:pointer}
+.pairbtn[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.tag{font:500 11px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);display:inline-flex;align-items:center;gap:6px}
+.tag::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--up);animation:pulse 1.8s ease-in-out infinite}
+@keyframes pulse{50%{opacity:.25}}
+#chart{display:block;width:100%;aspect-ratio:16/10;max-width:100%}
+.term-foot{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));border-top:1px solid var(--line)}
+.stat{padding:10px 12px;display:grid;gap:2px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+.stat span:first-child{font:500 10.5px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.stat span:last-child{font:500 14px var(--f-mono);font-variant-numeric:tabular-nums}
+.ticker{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-bottom:8px}
+.tk{background:var(--surface);padding:10px 12px;display:grid;gap:2px;min-width:0}
+.tk b{font:500 12px var(--f-mono);color:var(--muted)}
+.tk span{font:500 16px var(--f-mono);font-variant-numeric:tabular-nums}
+.tk i{font:500 12px var(--f-mono);font-style:normal;font-variant-numeric:tabular-nums}
+.up{color:var(--up)} .dn{color:var(--down)}
+.ticker-note{font-size:12px;color:var(--muted);padding-bottom:6px}
+
+/* answer block */
+.answer{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(24px,4vw,56px);align-items:start}
+@media (max-width:900px){.answer{grid-template-columns:minmax(0,1fr)}}
+.answer p{font-size:clamp(18px,2vw,22px);line-height:1.5;max-width:60ch}
+.answer .meta{margin-top:16px;font-size:13px;color:var(--muted)}
+.facts{margin:0;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+.facts div{display:grid;grid-template-columns:130px minmax(0,1fr);gap:12px;padding:11px 14px;border-bottom:1px solid var(--line)}
+.facts div:last-child{border-bottom:0}
+.facts dt{font:500 11px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.facts dd{margin:0;font-size:15px}
+
+/* sessions */
+.sband{position:relative;--lw:96px;--now:.5;background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:14px 14px 10px}
+.sb-axis{position:relative;margin-left:var(--lw);height:22px;font:500 11px var(--f-mono);color:var(--muted)}
+.sb-axis span{position:absolute;top:0;transform:translateX(-50%)}
+.sb-axis span:first-child{transform:none}.sb-axis span:last-child{transform:translateX(-100%)}
+.sb-row{display:grid;grid-template-columns:var(--lw) minmax(0,1fr);align-items:center;height:42px}
+.sb-name{font:500 13px var(--f-mono)}
+.sb-track{position:relative;height:22px;background:repeating-linear-gradient(90deg,var(--grid-strong) 0 1px,transparent 1px calc(100%/8));border-radius:3px}
+.seg{position:absolute;top:0;bottom:0;background:var(--accent-soft);border:1px solid var(--accent);border-radius:3px}
+.seg.peak{background:var(--accent)}
+.sb-now{position:absolute;top:34px;bottom:8px;left:calc(var(--lw) + 14px + (100% - var(--lw) - 28px) * var(--now));width:2px;background:var(--ink);pointer-events:none}
+.sb-now span{position:absolute;top:-24px;left:0;transform:translateX(-50%);white-space:nowrap;font:500 11px var(--f-mono);background:var(--ink);color:var(--bg);padding:2px 6px;border-radius:3px}
+.sb-now.flip span{transform:translateX(-100%)}
+.readout{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin-top:14px}
+.readout div{border:1px solid var(--line);border-radius:8px;padding:12px 14px;background:var(--surface)}
+.readout b{display:block;font:500 11px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.legend{margin:18px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px 24px;font-size:14px;color:var(--muted)}
+.legend strong{color:var(--ink);font-weight:600}
+@media (max-width:560px){.sband{--lw:70px}.sb-name{font-size:11px}}
+
+/* bots */
+.bots{display:grid;grid-template-columns:240px minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:900px){.bots{grid-template-columns:minmax(0,1fr)}}
+.tablist{display:flex;flex-direction:column;gap:6px}
+@media (max-width:900px){.tablist{flex-direction:row;overflow-x:auto;padding-bottom:6px}}
+.tab{display:grid;gap:2px;text-align:left;padding:12px 14px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);color:var(--ink);cursor:pointer;font:600 15px var(--f-body);flex:none;min-width:150px}
+.tab-meta{font:500 11px var(--f-mono);color:var(--muted)}
+.tab[aria-selected="true"]{border-color:var(--accent);background:var(--accent-soft);box-shadow:inset 3px 0 0 var(--accent)}
+[hidden]{display:none!important}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:clamp(18px,3vw,30px);display:grid;gap:22px;min-width:0}
+.panel h3{font-size:clamp(24px,3vw,34px);font-weight:700}
+.panel .tagline{color:var(--muted);margin-top:6px;max-width:58ch}
+.panel-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:22px}
+@media (max-width:720px){.panel-top{grid-template-columns:minmax(0,1fr)}}
+.panel .facts{background:transparent}
+.panel .facts div{grid-template-columns:104px minmax(0,1fr)}
+.panel figure{margin:0;display:grid;gap:8px;align-content:start}
+.panel figcaption{font-size:12px;color:var(--muted)}
+.curve{width:100%;height:auto;display:block;background:var(--bg);border:1px solid var(--line);border-radius:6px}
+.c-area{fill:var(--accent);opacity:.14}
+.c-line{fill:none;stroke:var(--accent);stroke-width:2;stroke-linejoin:round}
+.c-base{fill:none;stroke:var(--muted);stroke-width:1.5;stroke-dasharray:4 4}
+.c-grid{stroke:var(--line);stroke-width:1}
+.panel-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px}
+.panel h4{font:500 12px var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
+.panel ul{margin:0;padding-left:18px;display:grid;gap:6px;font-size:15px}
+.profile{margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px 24px}
+.meter-row{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:13px}
+.meter-row dt{color:var(--muted)} .meter-row dd{margin:0}
+.meter{display:inline-flex;gap:3px}
+.meter i{width:16px;height:8px;border-radius:2px;background:var(--line);display:block}
+.meter i.on{background:var(--accent)}
+
+/* steps */
+.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.steps li{border-top:2px solid var(--ink);padding-top:14px;display:grid;gap:8px;align-content:start}
+.steps .n{font:500 12px var(--f-mono);letter-spacing:.1em;color:var(--accent);text-transform:uppercase}
+.steps h3{font-size:21px;font-weight:700}
+.steps p{color:var(--muted);font-size:15px}
+
+/* engine */
+.layers{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:0;border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden}
+.layer{padding:22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);margin:0 -1px -1px 0;min-width:0}
+.layer h3{font:500 12px var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.layer dl{margin:0;display:grid;gap:16px}
+.layer dt{font:700 18px var(--f-display);letter-spacing:-.015em;margin-bottom:4px}
+.layer dd{margin:0;color:var(--muted);font-size:15px}
+
+/* calculator */
+.calc{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:20px}
+@media (max-width:820px){.calc{grid-template-columns:minmax(0,1fr)}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:clamp(18px,3vw,28px)}
+.field{display:grid;gap:6px;margin-bottom:16px}
+.field label{font:500 12px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.field input,.field select{font:500 16px var(--f-mono);padding:11px 12px;border:1px solid var(--line);border-radius:var(--r);background:var(--bg);color:var(--ink);width:100%;min-width:0}
+.field input:focus,.field select:focus{border-color:var(--accent)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.out{display:grid;gap:0;margin:0}
+.out div{display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--line)}
+.out div:last-child{border-bottom:0}
+.out dt{font:500 12px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.out dd{margin:0;font:500 20px var(--f-mono);font-variant-numeric:tabular-nums;text-align:right}
+.out .big dd{font-size:clamp(28px,4vw,40px);color:var(--accent);font-family:var(--f-display);font-weight:800}
+.note{font-size:13px;color:var(--muted);margin-top:14px}
+
+/* pricing */
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;align-items:stretch}
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:24px;display:grid;gap:16px;align-content:start}
+.plan.feat{border:2px solid var(--accent)}
+.plan h3{font-size:24px;font-weight:700}
+.price{font:800 44px/1 var(--f-display);letter-spacing:-.03em}
+.price small{font:500 14px var(--f-mono);color:var(--muted);letter-spacing:0}
+.plan ul{list-style:none;padding:0;margin:0;display:grid;gap:9px;font-size:15px}
+.plan li{padding-left:22px;position:relative}
+.plan li::before{content:"";position:absolute;left:0;top:.55em;width:10px;height:2px;background:var(--accent)}
+
+/* coverage */
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:640px;font-size:15px}
+caption{text-align:left;padding:14px 16px;font:500 12px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+th,td{text-align:left;padding:12px 16px;border-top:1px solid var(--line);vertical-align:top}
+th{font:500 12px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+tbody th{font:600 15px var(--f-body);letter-spacing:0;text-transform:none;color:var(--ink)}
+
+/* faq */
+.faq{display:grid;gap:10px;max-width:860px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:8px}
+.faq summary{cursor:pointer;list-style:none;padding:16px 18px;font:700 18px/1.3 var(--f-display);letter-spacing:-.01em;display:flex;justify-content:space-between;gap:16px;align-items:center}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font:500 22px var(--f-mono);color:var(--accent);flex:none}
+.faq details[open] summary::after{content:"\2212"}
+.faq details p{padding:0 18px 18px;color:var(--muted);max-width:70ch}
+
+/* cta */
+.cta{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:clamp(24px,5vw,56px);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,4vw,48px);align-items:center}
+@media (max-width:860px){.cta{grid-template-columns:minmax(0,1fr)}}
+.cta h2{font-size:clamp(28px,4vw,44px);font-weight:800}
+.form-row{display:flex;flex-wrap:wrap;gap:10px}
+.form-row input{flex:1 1 220px;min-width:0;font:500 16px var(--f-body);padding:13px 14px;border:1px solid var(--ink);border-radius:var(--r);background:var(--bg);color:var(--ink)}
+#formMsg{min-height:1.5em;margin-top:10px;font-size:14px;color:var(--muted)}
+
+/* footer */
+.foot{border-top:1px solid var(--line);padding-block:36px 48px;display:grid;gap:22px;font-size:14px;color:var(--muted)}
+.foot nav{display:flex;flex-wrap:wrap;gap:8px 22px}
+.risk{border:1px solid var(--warn);border-radius:8px;padding:16px 18px;color:var(--ink);background:var(--surface);font-size:14px;max-width:100ch}
+.risk strong{color:var(--warn)}
+/* marketing layer */
+.promo{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:20px;align-items:start}
+@media (max-width:860px){.promo{grid-template-columns:minmax(0,1fr)}}
+.card-h{font:700 22px var(--f-display);letter-spacing:-.02em;margin-bottom:6px}
+.sharegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin:16px 0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.chip{display:inline-flex;align-items:center;justify-content:center;padding:9px 12px;border:1px solid var(--line);border-radius:var(--r);background:var(--bg);color:var(--ink);font:500 13px var(--f-mono);text-decoration:none;cursor:pointer;min-height:40px}
+.chip:hover{border-color:var(--accent);color:var(--accent)}
+.chip[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent)}
+.urlout{display:block;font:500 13px/1.5 var(--f-mono);padding:12px;border:1px dashed var(--accent);border-radius:var(--r);background:var(--bg);word-break:break-all;margin-bottom:12px;min-height:3.2em}
+.row-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.msg{font-size:13px;color:var(--muted)}
+.geo{margin:0 0 16px;font-size:15px;color:var(--muted);max-width:84ch}
+.geo strong{color:var(--ink);font-weight:600}
+tr.geo-hit>*{background:var(--accent-soft)}
+.consent{position:fixed;left:0;right:0;bottom:0;z-index:70;padding-top:14px;padding-bottom:calc(14px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.consent-in{max-width:880px;margin:0 auto;background:var(--surface);border:1px solid var(--ink);border-radius:10px;padding:16px 18px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;box-shadow:0 18px 40px -18px rgba(0,0,0,.5)}
+.consent-in p{margin:0;font-size:14px;color:var(--muted);flex:1 1 320px;min-width:0}
+.consent-h{font:700 17px var(--f-display);margin:0 0 4px;color:var(--ink)}
+.consent-actions{display:flex;gap:10px}
+.owner{border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink)}
+.owner summary{cursor:pointer;padding:12px 16px;font:500 13px var(--f-mono);letter-spacing:.06em;text-transform:uppercase}
+.owner-body{padding:4px 16px 18px;display:grid;gap:18px;font-size:14px;color:var(--muted)}
+.owner-body h3{font:700 17px var(--f-display);color:var(--ink);margin-bottom:6px}
+.code{margin:0;padding:14px;background:var(--bg);border:1px solid var(--line);border-radius:var(--r);overflow-x:auto;font:400 13px/1.55 var(--f-mono);color:var(--ink)}
+.log{margin:0;padding-left:22px;font:400 12px/1.7 var(--f-mono);color:var(--muted);max-height:210px;overflow:auto}
+.st{font:500 12px var(--f-mono)}.st.ok{color:var(--up)}.st.bad{color:var(--down)}.st.wait{color:var(--warn)}
+.linkbtn{background:none;border:0;padding:0;font:inherit;color:inherit;text-decoration:underline;cursor:pointer}
+</style>
+<!--BODY-->
+<a class="skip" href="#main">Skip to content</a>
+<div class="page">
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="#top" aria-label="Pipwright home">
+      <svg viewBox="0 0 26 26" aria-hidden="true"><rect x="3" y="9" width="5" height="11" rx="1" fill="var(--ink)"/><rect x="10.5" y="4" width="5" height="12" rx="1" fill="var(--accent)"/><rect x="18" y="8" width="5" height="14" rx="1" fill="var(--ink)"/><path d="M5.5 5v4M13 1v3M20.5 4v4" stroke="var(--ink)" stroke-width="1.5" stroke-linecap="round"/></svg>
+      Pipwright
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#bots">Bots</a><a href="#sessions">Sessions</a><a href="#how">How it works</a><a href="#engine">Engine</a><a href="#calculator">Risk calculator</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a>
+    </nav>
+    <div class="top-actions">
+      <button class="theme" id="themeBtn" type="button" aria-label="Switch theme"><span id="themeLbl">Theme</span></button>
+      <a class="btn btn-primary btn-sm" href="#access">Start paper trading</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<div id="top"></div>
+<section class="hero" aria-labelledby="h1">
+  <div>
+    <p class="eyebrow">AI forex trading bots for MT5, cTrader and TradingView</p>
+    <h1 id="h1">Six AI forex bots, each built for one <em>market session.</em></h1>
+    <p class="lede">Pipwright reads the market regime, the live spread and the news calendar before it sizes a trade. Run any bot on paper money first, then connect your broker with trade-only permissions.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#access">Start paper trading</a>
+      <a class="btn" href="#bots">Compare the six bots</a>
+    </div>
+    <p class="fine">Trade-only access means Pipwright cannot withdraw funds. Forex trading on margin carries a high risk of loss.</p>
+  </div>
+  <div>
+    <div class="term" aria-label="Simulated candlestick chart with bot entry markers">
+      <div class="term-head">
+        <div class="pairs" role="group" aria-label="Chart pair" id="pairBtns"></div>
+        <span class="tag">Simulated feed</span>
+      </div>
+      <canvas id="chart" role="img" aria-label="Simulated candlestick chart showing a 9 and 21 period moving average with long and short entry markers"></canvas>
+      <div class="term-foot">
+        <div class="stat"><span>Position</span><span id="stPos">Flat</span></div>
+        <div class="stat"><span>Regime</span><span id="stReg">Ranging</span></div>
+        <div class="stat"><span>Stop distance</span><span id="stStop">0.0 pips</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker" id="ticker" aria-label="Simulated pair prices"></div>
+<p class="ticker-note">Prices and candles on this page are generated in your browser for demonstration. They are not live market data.</p>
+
+<section class="section" id="what" aria-labelledby="what-h">
+  <div class="answer">
+    <div>
+      <p class="eyebrow">Definition</p>
+      <h2 id="what-h" class="sr-only">What is Pipwright?</h2>
+      <p style="margin-top:12px"><strong>Pipwright is a cloud platform that runs six AI-driven forex trading bots on your broker account through MetaTrader 5, cTrader or TradingView webhooks.</strong> Each bot targets one trading style, such as trend following or London-open scalping, and applies fixed risk rules, spread filters and a news blackout before every order. It connects with trade-only permissions, so it cannot withdraw your funds.</p>
+      <p class="meta">Last reviewed <time datetime="2026-11-12">12 November 2026</time>. Software, not investment advice.</p>
+    </div>
+    <dl class="facts">
+      <div><dt>Category</dt><dd>Automated forex trading software</dd></div>
+      <div><dt>Bots</dt><dd>6 (trend, scalper, range, news, carry, hedge overlay)</dd></div>
+      <div><dt>Platforms</dt><dd>MetaTrader 5, cTrader, TradingView webhooks</dd></div>
+      <div><dt>Instruments</dt><dd>28 major and minor currency pairs</dd></div>
+      <div><dt>Broker access</dt><dd>Trade-only, no withdrawal rights</dd></div>
+      <div><dt>Modes</dt><dd>Backtest, paper, live</dd></div>
+      <div><dt>Hosting</dt><dd>Cloud, no VPS required</dd></div>
+      <div><dt>Starts at</dt><dd>$0 per month (paper mode)</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section" id="sessions" aria-labelledby="sessions-h">
+  <div class="section-head">
+    <p class="eyebrow">Market sessions</p>
+    <h2 id="sessions-h">Every bot has a schedule. This is the 24-hour clock it follows.</h2>
+    <p class="lede">Forex liquidity moves around the globe, from Sydney to Tokyo to London to New York. Each Pipwright bot is scheduled for the sessions where its strategy has an edge, and stays flat outside them. The marker shows the current time in UTC.</p>
+  </div>
+  <div class="sband" id="sband" role="group" aria-label="Forex trading sessions on a 24-hour UTC timeline"></div>
+  <div class="readout" aria-live="polite">
+    <div><b>Your time</b><span id="roLocal" class="mono">--:--</span></div>
+    <div><b>Sessions open now</b><span id="roOpen">Loading</span></div>
+    <div><b>Bots scheduled now</b><span id="roBots">Loading</span></div>
+  </div>
+  <ul class="legend">
+    <li><strong>Sydney</strong> 21:00 to 06:00 UTC</li>
+    <li><strong>Tokyo</strong> 00:00 to 09:00 UTC</li>
+    <li><strong>London</strong> 07:00 to 16:00 UTC</li>
+    <li><strong>New York</strong> 12:00 to 21:00 UTC</li>
+    <li><strong>London and New York overlap</strong> 12:00 to 16:00 UTC, usually the deepest liquidity of the day</li>
+    <li>Hours shift by one hour when daylight saving time changes in the US or UK.</li>
+  </ul>
+</section>
+
+<section class="section" id="bots" aria-labelledby="bots-h">
+  <div class="section-head">
+    <p class="eyebrow">The lineup</p>
+    <h2 id="bots-h">Six bots, six jobs.</h2>
+    <p class="lede">Pick one bot or run several. Each one lists the timeframe it trades, how long it holds, what it looks at and the limits that stop it. The curves are shape sketches of each style, not results.</p>
+  </div>
+  <div class="bots">
+    <div class="tablist" role="tablist" aria-label="Pipwright bots" aria-orientation="vertical">
+      <button class="tab" role="tab" id="tab-trendline" aria-controls="panel-trendline" aria-selected="true" tabindex="0" type="button">Trendline<span class="tab-meta">Trend following</span></button>
+      <button class="tab" role="tab" id="tab-open-range-scalper" aria-controls="panel-open-range-scalper" aria-selected="false" tabindex="-1" type="button">Open Range Scalper<span class="tab-meta">Session scalping</span></button>
+      <button class="tab" role="tab" id="tab-rangekeeper" aria-controls="panel-rangekeeper" aria-selected="false" tabindex="-1" type="button">Rangekeeper<span class="tab-meta">Range mean reversion</span></button>
+      <button class="tab" role="tab" id="tab-newsdesk" aria-controls="panel-newsdesk" aria-selected="false" tabindex="-1" type="button">Newsdesk<span class="tab-meta">Event-driven</span></button>
+      <button class="tab" role="tab" id="tab-carry-compass" aria-controls="panel-carry-compass" aria-selected="false" tabindex="-1" type="button">Carry Compass<span class="tab-meta">Swing carry</span></button>
+      <button class="tab" role="tab" id="tab-hedge-guard" aria-controls="panel-hedge-guard" aria-selected="false" tabindex="-1" type="button">Hedge Guard<span class="tab-meta">Risk overlay</span></button>
+    </div>
+    <div>
+<article class="panel" role="tabpanel" id="panel-trendline" aria-labelledby="tab-trendline" data-name="Trendline" data-sessions="London,New York">
+  <div><p class="eyebrow">Trend following</p><h3 style="margin-top:8px">Trendline</h3><p class="tagline">Rides multi-day moves and cuts losing trades early. Skips ranging markets.</p></div>
+  <div class="panel-top">
+    <dl class="facts">
+      <div><dt>Timeframe</dt><dd>H1 / H4</dd></div>
+      <div><dt>Holding time</dt><dd>1 to 5 days</dd></div>
+      <div><dt>Sessions</dt><dd>London and New York</dd></div>
+      <div><dt>Reads</dt><dd>Regime classifier, 20 and 50 period EMA slope, ATR, higher-timeframe bias</dd></div>
+      <div><dt>Safeguards</dt><dd>Initial stop at 2 x ATR, trailing stop after 1R, no new entries when the regime reads ranging</dd></div>
+    </dl>
+    <figure><svg class="curve" viewBox="0 0 360 150" role="img" aria-label="Illustrative shape of Trendline equity curve" data-seed="11" data-drift="0.28" data-vol="0.8" data-jump="0.04" data-jsize="-3.2" data-compare="0"></svg><figcaption>Style sketch of how this strategy tends to move: shape only, not a result.</figcaption></figure>
+  </div>
+  <div class="panel-cols">
+    <div><h4>How it trades</h4><ul><li>Enters in the direction of the higher-timeframe trend after a pullback to the 20 EMA.</li><li>Sizes each trade from a fixed percentage of equity and the ATR stop distance.</li><li>Moves the stop to break-even after the trade is up 1R, then trails behind swing lows or highs.</li></ul></div>
+    <div><h4>Known limits</h4><ul><li>Expect many small losses between large wins.</li><li>Underperforms in choppy, sideways markets.</li><li>Gap risk over the weekend on open positions.</li></ul></div>
+  </div>
+  <div><h4>Profile</h4><dl class="profile"><div class="meter-row"><dt>Trade frequency</dt><dd><span class="meter" aria-label="2 of 5"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></dd></div><div class="meter-row"><dt>Holding time</dt><dd><span class="meter" aria-label="4 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i></span></dd></div><div class="meter-row"><dt>Spread sensitivity</dt><dd><span class="meter" aria-label="2 of 5"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></dd></div><div class="meter-row"><dt>News exposure</dt><dd><span class="meter" aria-label="2 of 5"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></dd></div></dl></div>
+</article>
+<article class="panel" role="tabpanel" id="panel-open-range-scalper" aria-labelledby="tab-open-range-scalper" data-name="Open Range Scalper" data-sessions="London,New York" hidden>
+  <div><p class="eyebrow">Session scalping</p><h3 style="margin-top:8px">Open Range Scalper</h3><p class="tagline">Trades the first breakout after the London and New York opens. Stands down when spreads widen.</p></div>
+  <div class="panel-top">
+    <dl class="facts">
+      <div><dt>Timeframe</dt><dd>M1 / M5</dd></div>
+      <div><dt>Holding time</dt><dd>2 to 30 minutes</dd></div>
+      <div><dt>Sessions</dt><dd>London open, New York open</dd></div>
+      <div><dt>Reads</dt><dd>Opening range high and low, tick volume, live spread, order-flow imbalance</dd></div>
+      <div><dt>Safeguards</dt><dd>Hard spread ceiling per pair, 6 trades per session cap, session loss limit, time stop at 30 minutes</dd></div>
+    </dl>
+    <figure><svg class="curve" viewBox="0 0 360 150" role="img" aria-label="Illustrative shape of Open Range Scalper equity curve" data-seed="23" data-drift="0.18" data-vol="0.45" data-jump="0.02" data-jsize="-1.6" data-compare="0"></svg><figcaption>Style sketch of how this strategy tends to move: shape only, not a result.</figcaption></figure>
+  </div>
+  <div class="panel-cols">
+    <div><h4>How it trades</h4><ul><li>Marks the first 30 minutes of the session as the opening range.</li><li>Takes a breakout only when the live spread is under the pair ceiling and momentum confirms.</li><li>Closes any trade that has not worked within 30 minutes.</li></ul></div>
+    <div><h4>Known limits</h4><ul><li>Most sensitive of the six to spread, slippage and broker execution speed.</li><li>Needs a broker with tight raw spreads.</li><li>Not suited to accounts with high commission per lot.</li></ul></div>
+  </div>
+  <div><h4>Profile</h4><dl class="profile"><div class="meter-row"><dt>Trade frequency</dt><dd><span class="meter" aria-label="5 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></dd></div><div class="meter-row"><dt>Holding time</dt><dd><span class="meter" aria-label="1 of 5"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></dd></div><div class="meter-row"><dt>Spread sensitivity</dt><dd><span class="meter" aria-label="5 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></dd></div><div class="meter-row"><dt>News exposure</dt><dd><span class="meter" aria-label="2 of 5"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></dd></div></dl></div>
+</article>
+<article class="panel" role="tabpanel" id="panel-rangekeeper" aria-labelledby="tab-rangekeeper" data-name="Rangekeeper" data-sessions="Sydney,Tokyo" hidden>
+  <div><p class="eyebrow">Range mean reversion</p><h3 style="margin-top:8px">Rangekeeper</h3><p class="tagline">Fades the edges of quiet Asian-session ranges. Exits the moment a breakout starts.</p></div>
+  <div class="panel-top">
+    <dl class="facts">
+      <div><dt>Timeframe</dt><dd>M15 / H1</dd></div>
+      <div><dt>Holding time</dt><dd>1 to 12 hours</dd></div>
+      <div><dt>Sessions</dt><dd>Sydney and Tokyo</dd></div>
+      <div><dt>Reads</dt><dd>Bollinger band width, RSI, regime classifier, session high and low</dd></div>
+      <div><dt>Safeguards</dt><dd>Stop beyond the range edge, no entry when band width expands, flat before London open</dd></div>
+    </dl>
+    <figure><svg class="curve" viewBox="0 0 360 150" role="img" aria-label="Illustrative shape of Rangekeeper equity curve" data-seed="37" data-drift="0.16" data-vol="0.35" data-jump="0.035" data-jsize="-4.2" data-compare="0"></svg><figcaption>Style sketch of how this strategy tends to move: shape only, not a result.</figcaption></figure>
+  </div>
+  <div class="panel-cols">
+    <div><h4>How it trades</h4><ul><li>Waits for the classifier to read ranging and for price to reach the outer band.</li><li>Enters back toward the middle of the range with the stop just outside the extreme.</li><li>Closes all positions before the London open when volatility normally returns.</li></ul></div>
+    <div><h4>Known limits</h4><ul><li>A real breakout produces a full-size loss.</li><li>Small average win, so costs matter.</li><li>Works on fewer pairs, mainly JPY, AUD and NZD crosses.</li></ul></div>
+  </div>
+  <div><h4>Profile</h4><dl class="profile"><div class="meter-row"><dt>Trade frequency</dt><dd><span class="meter" aria-label="3 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></dd></div><div class="meter-row"><dt>Holding time</dt><dd><span class="meter" aria-label="3 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></dd></div><div class="meter-row"><dt>Spread sensitivity</dt><dd><span class="meter" aria-label="3 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i></span></dd></div><div class="meter-row"><dt>News exposure</dt><dd><span class="meter" aria-label="1 of 5"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></dd></div></dl></div>
+</article>
+<article class="panel" role="tabpanel" id="panel-newsdesk" aria-labelledby="tab-newsdesk" data-name="Newsdesk" data-sessions="London,New York" hidden>
+  <div><p class="eyebrow">Event-driven</p><h3 style="margin-top:8px">Newsdesk</h3><p class="tagline">Reads central bank statements and data releases for surprise, then trades the first move or stays out.</p></div>
+  <div class="panel-top">
+    <dl class="facts">
+      <div><dt>Timeframe</dt><dd>M1 / M5</dd></div>
+      <div><dt>Holding time</dt><dd>Minutes</dd></div>
+      <div><dt>Sessions</dt><dd>Release windows (13:30 and 15:00 UTC are common)</dd></div>
+      <div><dt>Reads</dt><dd>Economic calendar, headline reader score, consensus versus actual, live spread</dd></div>
+      <div><dt>Safeguards</dt><dd>Skips any release where spread exceeds 3x normal, one trade per event, fixed 60-second time stop if no follow-through</dd></div>
+    </dl>
+    <figure><svg class="curve" viewBox="0 0 360 150" role="img" aria-label="Illustrative shape of Newsdesk equity curve" data-seed="41" data-drift="0.15" data-vol="0.25" data-jump="0.06" data-jsize="4.6" data-compare="0"></svg><figcaption>Style sketch of how this strategy tends to move: shape only, not a result.</figcaption></figure>
+  </div>
+  <div class="panel-cols">
+    <div><h4>How it trades</h4><ul><li>Scores the release against consensus and the language of the statement.</li><li>Trades only when surprise is large and the spread is still tradable.</li><li>Exits within minutes, before the market settles into noise.</li></ul></div>
+    <div><h4>Known limits</h4><ul><li>Slippage in the first seconds can be large.</li><li>Fills are never guaranteed at the quoted price.</li><li>Few trades per month.</li></ul></div>
+  </div>
+  <div><h4>Profile</h4><dl class="profile"><div class="meter-row"><dt>Trade frequency</dt><dd><span class="meter" aria-label="1 of 5"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></dd></div><div class="meter-row"><dt>Holding time</dt><dd><span class="meter" aria-label="1 of 5"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></dd></div><div class="meter-row"><dt>Spread sensitivity</dt><dd><span class="meter" aria-label="5 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></dd></div><div class="meter-row"><dt>News exposure</dt><dd><span class="meter" aria-label="5 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></dd></div></dl></div>
+</article>
+<article class="panel" role="tabpanel" id="panel-carry-compass" aria-labelledby="tab-carry-compass" data-name="Carry Compass" data-sessions="All" hidden>
+  <div><p class="eyebrow">Swing carry</p><h3 style="margin-top:8px">Carry Compass</h3><p class="tagline">Holds the pairs with the widest rate gap in the direction of trend, and sells when risk sentiment turns.</p></div>
+  <div class="panel-top">
+    <dl class="facts">
+      <div><dt>Timeframe</dt><dd>D1</dd></div>
+      <div><dt>Holding time</dt><dd>2 to 8 weeks</dd></div>
+      <div><dt>Sessions</dt><dd>Checks once per day at the New York close</dd></div>
+      <div><dt>Reads</dt><dd>Policy rate differentials, swap points, D1 trend, volatility regime</dd></div>
+      <div><dt>Safeguards</dt><dd>Weekly equity cap, wide ATR stop, exits all carry trades when the volatility index rises past a set level</dd></div>
+    </dl>
+    <figure><svg class="curve" viewBox="0 0 360 150" role="img" aria-label="Illustrative shape of Carry Compass equity curve" data-seed="53" data-drift="0.22" data-vol="0.3" data-jump="0.012" data-jsize="-9" data-compare="0"></svg><figcaption>Style sketch of how this strategy tends to move: shape only, not a result.</figcaption></figure>
+  </div>
+  <div class="panel-cols">
+    <div><h4>How it trades</h4><ul><li>Ranks pairs by interest rate gap and swap cost, then filters by trend.</li><li>Opens small positions with wide stops and holds them for weeks.</li><li>Closes when volatility spikes, which is when carry trades usually unwind.</li></ul></div>
+    <div><h4>Known limits</h4><ul><li>Carry trades can lose sharply in a risk-off move.</li><li>Overnight swap changes with your broker and with central bank decisions.</li><li>Slowest bot, so the sample of trades is small.</li></ul></div>
+  </div>
+  <div><h4>Profile</h4><dl class="profile"><div class="meter-row"><dt>Trade frequency</dt><dd><span class="meter" aria-label="1 of 5"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></dd></div><div class="meter-row"><dt>Holding time</dt><dd><span class="meter" aria-label="5 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></dd></div><div class="meter-row"><dt>Spread sensitivity</dt><dd><span class="meter" aria-label="1 of 5"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></dd></div><div class="meter-row"><dt>News exposure</dt><dd><span class="meter" aria-label="2 of 5"><i class="on"></i><i class="on"></i><i class=""></i><i class=""></i><i class=""></i></span></dd></div></dl></div>
+</article>
+<article class="panel" role="tabpanel" id="panel-hedge-guard" aria-labelledby="tab-hedge-guard" data-name="Hedge Guard" data-sessions="All" hidden>
+  <div><p class="eyebrow">Risk overlay</p><h3 style="margin-top:8px">Hedge Guard</h3><p class="tagline">Sits on top of your other bots. It limits total exposure to one currency and trims positions when drawdown rises.</p></div>
+  <div class="panel-top">
+    <dl class="facts">
+      <div><dt>Timeframe</dt><dd>Account level</dd></div>
+      <div><dt>Holding time</dt><dd>Runs continuously</dd></div>
+      <div><dt>Sessions</dt><dd>Always on</dd></div>
+      <div><dt>Reads</dt><dd>Net exposure by currency, correlation between open trades, equity drawdown</dd></div>
+      <div><dt>Safeguards</dt><dd>Caps net exposure per currency, reduces size when drawdown passes your limit, can flatten all accounts</dd></div>
+    </dl>
+    <figure><svg class="curve" viewBox="0 0 360 150" role="img" aria-label="Illustrative shape of Hedge Guard equity curve" data-seed="61" data-drift="0.17" data-vol="0.2" data-jump="0.02" data-jsize="-1.2" data-compare="1"></svg><figcaption>Style sketch of a hedged equity line against an unhedged one (dashed). Not a result.</figcaption></figure>
+  </div>
+  <div class="panel-cols">
+    <div><h4>How it trades</h4><ul><li>Adds up exposure across every bot, so three long EUR trades are counted as one large position.</li><li>Blocks or shrinks new orders that would breach your currency cap.</li><li>Cuts position size in steps as drawdown grows, then restores it after recovery.</li></ul></div>
+    <div><h4>Known limits</h4><ul><li>It lowers risk, and it can also reduce profit.</li><li>It places no trades by itself.</li><li>Hedging is restricted for some account types, so check your broker.</li></ul></div>
+  </div>
+  <div><h4>Profile</h4><dl class="profile"><div class="meter-row"><dt>Trade frequency</dt><dd><span class="meter" aria-label="1 of 5"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></dd></div><div class="meter-row"><dt>Holding time</dt><dd><span class="meter" aria-label="5 of 5"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span></dd></div><div class="meter-row"><dt>Spread sensitivity</dt><dd><span class="meter" aria-label="1 of 5"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></dd></div><div class="meter-row"><dt>News exposure</dt><dd><span class="meter" aria-label="1 of 5"><i class="on"></i><i class=""></i><i class=""></i><i class=""></i><i class=""></i></span></dd></div></dl></div>
+</article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="how" aria-labelledby="how-h">
+  <div class="section-head">
+    <p class="eyebrow">Getting started</p>
+    <h2 id="how-h">From sign-up to a live bot in four steps.</h2>
+  </div>
+  <ol class="steps">
+    <li><span class="n">Step 1</span><h3>Connect</h3><p>Link a demo or live account on MetaTrader 5 or cTrader, or paste a TradingView webhook. Permissions are trade-only.</p></li>
+    <li><span class="n">Step 2</span><h3>Pick a bot and a risk profile</h3><p>Choose one of the six bots and set risk per trade, daily loss cap and the pairs it may trade.</p></li>
+    <li><span class="n">Step 3</span><h3>Backtest and paper trade</h3><p>Replay the bot on historical candles, then run it forward on live prices with simulated money for as long as you like.</p></li>
+    <li><span class="n">Step 4</span><h3>Go live with limits on</h3><p>Switch the account to live. The kill switch, spread guard and news blackout stay on, and you can pause or close everything from your phone.</p></li>
+  </ol>
+</section>
+
+<section class="section" id="engine" aria-labelledby="engine-h">
+  <div class="section-head">
+    <p class="eyebrow">Inside every bot</p>
+    <h2 id="engine-h">Four layers sit between a signal and your account.</h2>
+    <p class="lede">A signal never becomes an order on its own. It passes through execution checks and risk limits first, and every decision is written to your journal.</p>
+  </div>
+  <div class="layers">
+    <div class="layer"><h3>Signal</h3><dl>
+      <div><dt>Regime classifier</dt><dd>Labels each pair as trending, ranging or volatile on every new candle, so a bot only trades the conditions it was built for.</dd></div>
+      <div><dt>Headline reader</dt><dd>Scores central bank statements and data releases for direction and surprise, and passes the score to the bots that use it.</dd></div>
+    </dl></div>
+    <div class="layer"><h3>Execution</h3><dl>
+      <div><dt>Spread and slippage guard</dt><dd>Holds an order when the live spread is wider than the bot's ceiling, and cancels fills that drift past your slippage cap.</dd></div>
+      <div><dt>Cloud execution</dt><dd>Bots run on our servers, so there is no VPS to rent and no terminal to leave open overnight.</dd></div>
+    </dl></div>
+    <div class="layer"><h3>Risk</h3><dl>
+      <div><dt>Fixed fractional sizing</dt><dd>Lot size comes from your risk per trade and the stop distance, the same maths as the calculator below.</dd></div>
+      <div><dt>Kill switch and loss caps</dt><dd>Daily, weekly and equity limits pause every bot at once. One button closes all open positions.</dd></div>
+    </dl></div>
+    <div class="layer"><h3>Operations</h3><dl>
+      <div><dt>Backtester and paper mode</dt><dd>Replay a bot on historical candles, then run it forward on live prices without risking money.</dd></div>
+      <div><dt>Trade journal</dt><dd>Each order stores the signal, regime, spread and the reason it was taken or skipped. Export it as CSV.</dd></div>
+    </dl></div>
+  </div>
+</section>
+
+<section class="section" id="calculator" aria-labelledby="calc-h">
+  <div class="section-head">
+    <p class="eyebrow">Free tool</p>
+    <h2 id="calc-h">Forex position size calculator.</h2>
+    <p class="lede">This is the sizing formula every Pipwright bot uses. Enter your balance, the percentage you will risk and your stop distance in pips.</p>
+  </div>
+  <div class="calc">
+    <form class="card" id="calcForm" novalidate>
+      <div class="field"><label for="cBal">Account balance (USD)</label><input id="cBal" type="number" inputmode="decimal" min="0" step="any" value="10000"></div>
+      <div class="two">
+        <div class="field"><label for="cRisk">Risk per trade (%)</label><input id="cRisk" type="number" inputmode="decimal" min="0" step="0.05" value="1"></div>
+        <div class="field"><label for="cStop">Stop loss (pips)</label><input id="cStop" type="number" inputmode="decimal" min="0" step="0.5" value="25"></div>
+      </div>
+      <div class="field"><label for="cPair">Currency pair</label>
+        <select id="cPair">
+          <option value="EUR/USD">EUR/USD</option><option value="GBP/USD">GBP/USD</option><option value="AUD/USD">AUD/USD</option>
+          <option value="USD/JPY">USD/JPY</option><option value="USD/CAD">USD/CAD</option><option value="USD/CHF">USD/CHF</option>
+        </select>
+      </div>
+      <p class="note">Lot size = (balance × risk %) ÷ (stop pips × pip value per lot). Pip values use the reference rates shown at right and an account in USD.</p>
+    </form>
+    <div class="card">
+      <dl class="out" aria-live="polite">
+        <div class="big"><dt>Lot size</dt><dd id="oLots">0.40</dd></div>
+        <div><dt>Amount at risk</dt><dd id="oRisk">$100.00</dd></div>
+        <div><dt>Units</dt><dd id="oUnits">40,000</dd></div>
+        <div><dt>Pip value per lot</dt><dd id="oPip">$10.00</dd></div>
+        <div><dt>Risk after rounding</dt><dd id="oReal">$100.00</dd></div>
+      </dl>
+      <p class="note" id="oNote">Lot size is rounded down to the nearest 0.01 lot. Reference rate for EUR/USD: 1.0850.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="pricing" aria-labelledby="pricing-h">
+  <div class="section-head">
+    <p class="eyebrow">Pricing</p>
+    <h2 id="pricing-h">Start free on paper money. Pay when you go live.</h2>
+  </div>
+  <div class="plans">
+    <article class="plan">
+      <h3>Starter</h3>
+      <p class="price">$0 <small>/ month</small></p>
+      <p class="fine">For learning how the bots behave.</p>
+      <ul><li>Paper trading only</li><li>One bot at a time</li><li>3 currency pairs</li><li>30-day trade journal</li></ul>
+      <a class="btn" href="#access">Start free</a>
+    </article>
+    <article class="plan feat">
+      <h3>Pro</h3>
+      <p class="price">$49 <small>/ month</small></p>
+      <p class="fine">For one live broker account.</p>
+      <ul><li>All six bots</li><li>Live trading on 1 broker account</li><li>28 currency pairs</li><li>News blackout, kill switch and loss caps</li><li>Full backtester and CSV export</li><li>Email and mobile alerts</li></ul>
+      <a class="btn btn-primary" href="#access">Choose Pro</a>
+    </article>
+    <article class="plan">
+      <h3>Desk</h3>
+      <p class="price">$199 <small>/ month</small></p>
+      <p class="fine">For active traders and small funds.</p>
+      <ul><li>Up to 5 broker accounts</li><li>Hedge Guard across all accounts</li><li>Webhooks and REST API</li><li>Custom risk profiles per account</li><li>Priority support</li></ul>
+      <a class="btn" href="#access">Choose Desk</a>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="coverage" aria-labelledby="coverage-h">
+  <div class="section-head">
+    <p class="eyebrow">Global availability</p>
+    <h2 id="coverage-h">Where Pipwright works, and what to check first.</h2>
+    <p class="lede">Pipwright connects to the broker you already use. Whether you can use automated trading depends on your broker and on local rules, so confirm both before you go live.</p>
+  </div>
+  <p class="geo" id="geoNote" aria-live="polite">Your region is highlighted when your browser shares its time zone.</p>
+<div class="tablewrap">
+    <table>
+      <caption>Regional availability notes</caption>
+      <thead><tr><th scope="col">Region</th><th scope="col">Most relevant sessions</th><th scope="col">What to check</th></tr></thead>
+      <tbody>
+        <tr><th scope="row">Europe and United Kingdom</th><td>London, New York overlap</td><td>Use a broker authorised by your local regulator. Leverage limits for retail clients are lower than in many other regions.</td></tr>
+        <tr><th scope="row">Asia-Pacific</th><td>Sydney, Tokyo, London</td><td>Rules differ by country. Some markets restrict leveraged forex for retail clients.</td></tr>
+        <tr><th scope="row">South Asia</th><td>Tokyo, London</td><td>Check local foreign-exchange regulations and your broker's rules for residents before opening an account.</td></tr>
+        <tr><th scope="row">Middle East and Africa</th><td>London, New York</td><td>Broker licensing and retail access vary widely. Confirm your broker accepts clients from your country.</td></tr>
+        <tr><th scope="row">North America</th><td>New York, London overlap</td><td>US retail accounts have rules on hedging and order handling that some bots cannot follow. Pipwright is not offered where trading automation is prohibited.</td></tr>
+        <tr><th scope="row">Latin America</th><td>New York, Sydney</td><td>Check your broker's local entity and the tax treatment of trading profits.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="section" id="faq" aria-labelledby="faq-h">
+  <div class="section-head">
+    <p class="eyebrow">Questions</p>
+    <h2 id="faq-h">Frequently asked questions about AI forex bots.</h2>
+  </div>
+  <div class="faq">
+    <details open><summary>What is an AI forex trading bot?</summary><p>An AI forex trading bot is software that analyses currency prices and news, decides when to buy or sell, and sends orders to your broker without manual clicks. Pipwright bots use machine learning to classify market conditions and read headlines, and fixed rules to size trades and limit losses.</p></details>
+    <details><summary>Can an AI forex bot guarantee profit?</summary><p>No. No bot can guarantee profit, and forex trading on margin can lose more than your deposit. Pipwright does not publish promised returns. You can test each bot on historical data and on paper money to see how it behaves before you risk anything.</p></details>
+    <details><summary>Which platforms does Pipwright work with?</summary><p>Pipwright connects to MetaTrader 5 and cTrader accounts, and accepts TradingView alerts through a webhook. If your broker offers one of those platforms, the bots can usually trade it.</p></details>
+    <details><summary>Can Pipwright withdraw money from my account?</summary><p>No. You connect with trade-only permissions. Pipwright can place, modify and close orders, but it has no ability to withdraw or transfer funds. Your money stays with your broker.</p></details>
+    <details><summary>Do I need a VPS to run the bots?</summary><p>No. The bots run on Pipwright servers, so your computer can be off. You only need an account at a supported broker.</p></details>
+    <details><summary>How does the risk management work?</summary><p>Each trade is sized from a fixed percentage of equity and the stop distance. A spread guard blocks orders when costs jump, a news blackout pauses trading around scheduled releases, daily and weekly loss caps pause every bot, and a kill switch closes all positions.</p></details>
+    <details><summary>Can I try it without risking money?</summary><p>Yes. The Starter plan is free and runs in paper mode on live prices with simulated funds. You can also backtest on historical data. Moving to a live account is a separate step.</p></details>
+    <details><summary>What is the best forex trading session for a bot?</summary><p>It depends on the strategy. Trend and scalping bots favour the London session and the London and New York overlap (12:00 to 16:00 UTC) because liquidity is deepest. Range bots suit the quieter Sydney and Tokyo hours. Each Pipwright bot is scheduled for its own sessions.</p></details>
+    <details><summary>Is automated forex trading legal where I live?</summary><p>Rules vary by country. Some regions restrict leveraged forex for retail clients, and some brokers do not accept residents of certain countries. Check your local regulator and your broker before going live. Pipwright does not give legal or tax advice.</p></details>
+    <details><summary>Which currency pairs are supported?</summary><p>Pro and Desk support 28 major and minor pairs, such as EUR/USD, GBP/USD, USD/JPY and AUD/USD. Starter paper mode supports three pairs.</p></details>
+  </div>
+</section>
+
+<section class="section" id="promote" aria-labelledby="promote-h">
+  <div class="section-head">
+    <p class="eyebrow">Promote</p>
+    <h2 id="promote-h">Share Pipwright and tag every campaign link.</h2>
+    <p class="lede">Send people to this page from any channel. Campaign tags (UTM parameters) show up in Google Analytics, Meta, LinkedIn and every other tool that reads the address, so you can see which post, ad or newsletter brought each sign-up.</p>
+  </div>
+  <div class="promo">
+    <div class="card">
+      <h3 class="card-h">Share this page</h3>
+      <p class="note" style="margin-top:0">Opens the network's own share window in a new tab.</p>
+      <div class="sharegrid" id="shareGrid"></div>
+      <div class="row-actions"><button class="btn btn-sm" type="button" id="copyPage">Copy page link</button><span class="msg" id="copyMsg" role="status"></span></div>
+    </div>
+    <form class="card" id="utmForm" novalidate>
+      <h3 class="card-h">Campaign link builder</h3>
+      <p class="note" style="margin-top:0;margin-bottom:14px">Pick a channel, name the campaign and copy the tagged link.</p>
+      <div class="chips" role="group" aria-label="Channel presets" id="utmChips">
+        <button class="chip" type="button" data-src="google" data-med="cpc">Google Ads</button>
+        <button class="chip" type="button" data-src="facebook" data-med="paid-social">Meta Ads</button>
+        <button class="chip" type="button" data-src="x" data-med="social">X</button>
+        <button class="chip" type="button" data-src="linkedin" data-med="social">LinkedIn</button>
+        <button class="chip" type="button" data-src="youtube" data-med="video">YouTube</button>
+        <button class="chip" type="button" data-src="telegram" data-med="social">Telegram</button>
+        <button class="chip" type="button" data-src="newsletter" data-med="email">Newsletter</button>
+        <button class="chip" type="button" data-src="affiliate" data-med="referral">Affiliate</button>
+      </div>
+      <div class="field"><label for="uBase">Page address</label><input id="uBase" type="url" inputmode="url" value=""></div>
+      <div class="two">
+        <div class="field"><label for="uSource">Source (utm_source)</label><input id="uSource" type="text" value="x" autocomplete="off"></div>
+        <div class="field"><label for="uMedium">Medium (utm_medium)</label><input id="uMedium" type="text" value="social" autocomplete="off"></div>
+      </div>
+      <div class="field"><label for="uCampaign">Campaign (utm_campaign)</label><input id="uCampaign" type="text" value="paper-trading-launch" autocomplete="off"></div>
+      <div class="two">
+        <div class="field"><label for="uTerm">Keyword (utm_term, optional)</label><input id="uTerm" type="text" value="" autocomplete="off"></div>
+        <div class="field"><label for="uContent">Ad or post (utm_content, optional)</label><input id="uContent" type="text" value="" autocomplete="off"></div>
+      </div>
+      <output class="urlout" id="uOut" for="uBase uSource uMedium uCampaign uTerm uContent" aria-live="polite"></output>
+      <div class="row-actions"><button class="btn btn-primary btn-sm" type="button" id="uCopy">Copy tagged link</button><span class="msg" id="uMsg" role="status"></span></div>
+      <p class="note">Spaces and capitals are cleaned up so the same campaign always reports under one name.</p>
+    </form>
+  </div>
+</section>
+
+<section class="section" id="access" aria-labelledby="access-h">
+  <div class="cta">
+    <div>
+      <p class="eyebrow">Early access</p>
+      <h2 id="access-h" style="margin-top:12px">Run a bot on paper money this week.</h2>
+    </div>
+    <div>
+      <form id="waitlist" novalidate data-endpoint="">
+        <label class="sr-only" for="wEmail">Email address</label>
+        <div class="form-row">
+          <input id="wEmail" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+          <button class="btn btn-primary" type="submit">Get early access</button>
+        </div>
+        <p id="formMsg" role="status"></p>
+      </form>
+      <p class="fine">One email with your invite. No spam, and no card needed for paper trading.</p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <nav aria-label="Footer"><a href="#bots">Bots</a><a href="#sessions">Sessions</a><a href="#calculator">Risk calculator</a><a href="#pricing">Pricing</a><a href="#coverage">Availability</a><a href="#faq">FAQ</a><a href="#promote">Share and promote</a><button class="linkbtn" type="button" id="cookieSettings" hidden>Cookie settings</button></nav>
+  <details class="owner" id="owner">
+  <summary>Marketing setup for the site owner</summary>
+  <div class="owner-body">
+    <p>This panel is for you, not for visitors. Remove it before launch if you prefer. Tracking tags load only when an ID is filled in and the visitor accepts cookies. Plausible is cookieless and loads without consent.</p>
+    <div>
+      <h3>1. Add your IDs</h3>
+      <pre class="code">window.PW_CONFIG = {
+  gtm: "GTM-XXXXXXX",          // Google Tag Manager (use this or ga4, not both)
+  ga4: "G-XXXXXXXXXX",         // Google Analytics 4
+  metaPixel: "1234567890",     // Meta Pixel
+  tiktok: "XXXXXXXXXXXXXXXX",  // TikTok Pixel
+  linkedin: "1234567",         // LinkedIn Insight partner ID
+  clarity: "abcdefghij",       // Microsoft Clarity
+  plausibleDomain: "example.com"
+};</pre>
+      <p>Set the waitlist form's <code>data-endpoint</code> to any address that accepts a JSON POST, such as a Zapier or Make webhook, Formspree or your own server. Each sign-up sends the email plus first-touch and last-touch campaign data.</p>
+    </div>
+    <div>
+      <h3>2. Check the connection</h3>
+      <div class="tablewrap"><table id="statusTbl"><caption>Integration status</caption><thead><tr><th scope="col">Platform</th><th scope="col">Used for</th><th scope="col">ID</th><th scope="col">Status</th></tr></thead><tbody></tbody></table></div>
+      <p class="note">Pages hosted on a restricted viewer, including some preview tools, block these scripts. Status then reads Blocked even with a valid ID. On your own domain they load normally.</p>
+    </div>
+    <div>
+      <h3>3. Events the page sends</h3>
+      <p>Each event goes to <code>dataLayer</code> and to every loaded platform: <code>cta_click</code>, <code>bot_view</code>, <code>calculator_use</code>, <code>faq_open</code>, <code>section_view</code>, <code>scroll_depth</code>, <code>share</code>, <code>utm_link_created</code> and <code>generate_lead</code>.</p>
+      <ol class="log" id="evLog" aria-live="polite"><li>Waiting for activity. Click a button or scroll.</li></ol>
+    </div>
+  </div>
+</details>
+<p class="risk"><strong>Risk warning.</strong> Trading foreign exchange on margin carries a high level of risk and may not be suitable for all investors. You can lose more than your initial deposit. Backtested, simulated and paper results have limits and do not predict future results. Pipwright is trading software and does not provide investment, tax or legal advice.</p>
+  <p>&copy; 2026 Pipwright. All rights reserved.</p>
+</footer>
+<div class="consent" id="consent" role="region" aria-labelledby="consent-h" hidden>
+  <div class="consent-in">
+    <div style="flex:1 1 320px;min-width:0"><h2 class="consent-h" id="consent-h">Cookies and measurement</h2><p>We use analytics and advertising pixels to see which campaigns bring visitors. They load only if you accept. If you decline, the whole page still works.</p></div>
+    <div class="consent-actions"><button class="btn btn-sm" type="button" id="cDecline">Decline</button><button class="btn btn-primary btn-sm" type="button" id="cAccept">Accept</button></div>
+  </div>
+</div>
+
+</div>
+
+<script>
+(function(){
+'use strict';
+var root=document.documentElement;
+function $(s,r){return (r||document).querySelector(s)}
+function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
+var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+function css(n){return getComputedStyle(root).getPropertyValue(n).trim()}
+function pad(n){return (n<10?'0':'')+n}
+var redrawers=[];
+function redrawAll(){redrawers.forEach(function(f){try{f()}catch(e){}})}
+function rng(a){return function(){a|=0;a=a+0x6D2B79F5|0;var t=Math.imul(a^a>>>15,1|a);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
+
+/* theme */
+var tbtn=$('#themeBtn'),tlbl=$('#themeLbl');
+function effective(){var t=root.getAttribute('data-theme');if(t==='dark'||t==='light')return t;return (window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light'}
+function labelTheme(){var e=effective();tlbl.textContent=e==='dark'?'Light':'Dark';tbtn.setAttribute('aria-label','Switch to '+(e==='dark'?'light':'dark')+' theme')}
+try{var sv=localStorage.getItem('pw-theme');if(sv==='dark'||sv==='light')root.setAttribute('data-theme',sv)}catch(e){}
+tbtn.addEventListener('click',function(){var n=effective()==='dark'?'light':'dark';root.setAttribute('data-theme',n);try{localStorage.setItem('pw-theme',n)}catch(e){}labelTheme();redrawAll()});
+new MutationObserver(function(){labelTheme();redrawAll()}).observe(root,{attributes:true,attributeFilter:['data-theme']});
+if(window.matchMedia){var mq=matchMedia('(prefers-color-scheme: dark)');if(mq.addEventListener)mq.addEventListener('change',function(){labelTheme();redrawAll()})}
+labelTheme();
+
+/* simulated market */
+var PAIRS=[
+ {k:'EUR/USD',p:1.0850,d:5,v:0.00030,seed:7},
+ {k:'GBP/USD',p:1.2710,d:5,v:0.00036,seed:19},
+ {k:'USD/JPY',p:151.40,d:3,v:0.036,seed:31},
+ {k:'AUD/USD',p:0.6580,d:5,v:0.00024,seed:43},
+ {k:'USD/CAD',p:1.3680,d:5,v:0.00030,seed:59},
+ {k:'USD/CHF',p:0.8810,d:5,v:0.00026,seed:71}
+];
+function bias(i){return Math.sin(i/9)*0.07}
+function build(pr){var r=rng(pr.seed),price=pr.p,out=[];for(var i=0;i<72;i++){var o=price,h=o,l=o,c=o;for(var k=0;k<8;k++){c+=(r()-0.5+bias(i+k/8))*pr.v;if(c>h)h=c;if(c<l)l=c}out.push({o:o,h:h,l:l,c:c});price=c}return out}
+PAIRS.forEach(function(pr){pr.s=build(pr);pr.i=72;pr.t=0});
+var cur=0;
+function pip(pr){return pr.k==='USD/JPY'?0.01:0.0001}
+function ema(v,n){var k=2/(n+1),o=[],e=v[0];for(var i=0;i<v.length;i++){e=i===0?v[0]:v[i]*k+e*(1-k);o.push(e)}return o}
+function atr(s,n){var sum=0;for(var i=s.length-n;i<s.length;i++){var pc=s[i-1].c;sum+=Math.max(s[i].h-s[i].l,Math.abs(s[i].h-pc),Math.abs(s[i].l-pc))}return sum/n}
+function signals(s){var c=s.map(function(x){return x.c}),a=ema(c,9),b=ema(c,21),m=[];for(var i=22;i<s.length;i++){if(a[i-1]<=b[i-1]&&a[i]>b[i])m.push({i:i,side:'L',px:c[i]});else if(a[i-1]>=b[i-1]&&a[i]<b[i])m.push({i:i,side:'S',px:c[i]})}return {a:a,b:b,m:m}}
+
+var cv=$('#chart'),ctx=cv.getContext('2d');
+function drawChart(){
+  var dpr=Math.min(window.devicePixelRatio||1,2),w=cv.clientWidth,h=cv.clientHeight;
+  if(!w||!h)return;
+  var bw=Math.round(w*dpr),bh=Math.round(h*dpr);
+  if(cv.width!==bw||cv.height!==bh){cv.width=bw;cv.height=bh}
+  ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);
+  var pr=PAIRS[cur],s=pr.s,sg=signals(s);
+  var padR=64,padT=14,padB=24,cw=w-padR,ch=h-padT-padB;
+  var lo=Infinity,hi=-Infinity;
+  s.forEach(function(x){if(x.l<lo)lo=x.l;if(x.h>hi)hi=x.h});
+  var pd=(hi-lo)*0.1;lo-=pd;hi+=pd;
+  function Y(v){return padT+(hi-v)/(hi-lo)*ch}
+  var step=cw/s.length;
+  function X(i){return step*(i+0.5)}
+  var gridC=css('--grid-strong'),mut=css('--muted'),up=css('--up'),dn=css('--down'),acc=css('--accent'),ink=css('--ink'),bg=css('--bg'),mono=css('--f-mono');
+  ctx.font='11px '+mono;ctx.textBaseline='middle';
+  for(var g=0;g<=4;g++){var v=lo+(hi-lo)*g/4,y=Y(v);ctx.strokeStyle=gridC;ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(cw,y);ctx.stroke();ctx.fillStyle=mut;ctx.textAlign='left';ctx.fillText(v.toFixed(pr.d),cw+8,y)}
+  var bwid=Math.max(2,step*0.62);
+  s.forEach(function(x,i){var col=x.c>=x.o?up:dn,px=X(i);ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(px,Y(x.h));ctx.lineTo(px,Y(x.l));ctx.stroke();var y1=Y(Math.max(x.o,x.c)),y2=Y(Math.min(x.o,x.c));ctx.fillRect(px-bwid/2,y1,bwid,Math.max(1.5,y2-y1))});
+  function line(arr,col,dash){ctx.strokeStyle=col;ctx.lineWidth=1.6;ctx.setLineDash(dash||[]);ctx.beginPath();for(var i=0;i<arr.length;i++){var px=X(i),py=Y(arr[i]);if(i===0)ctx.moveTo(px,py);else ctx.lineTo(px,py)}ctx.stroke();ctx.setLineDash([])}
+  line(sg.a,acc);line(sg.b,mut,[4,3]);
+  sg.m.forEach(function(m){var px=X(m.i),isL=m.side==='L',x=s[m.i],py=isL?Y(x.l)+12:Y(x.h)-12,col=isL?up:dn;ctx.fillStyle=col;ctx.beginPath();if(isL){ctx.moveTo(px,py-6);ctx.lineTo(px-6,py+5);ctx.lineTo(px+6,py+5)}else{ctx.moveTo(px,py+6);ctx.lineTo(px-6,py-5);ctx.lineTo(px+6,py-5)}ctx.closePath();ctx.fill()});
+  var last=s[s.length-1],ly=Y(last.c);
+  ctx.strokeStyle=ink;ctx.lineWidth=1;ctx.setLineDash([2,3]);ctx.beginPath();ctx.moveTo(0,ly);ctx.lineTo(cw,ly);ctx.stroke();ctx.setLineDash([]);
+  ctx.fillStyle=ink;ctx.fillRect(cw+2,ly-9,padR-4,18);ctx.fillStyle=bg;ctx.textAlign='left';ctx.fillText(last.c.toFixed(pr.d),cw+6,ly);
+  ctx.fillStyle=mut;ctx.textAlign='left';ctx.fillText('M15  ·  EMA 9 / 21',4,h-10);
+}
+function updateStats(){
+  var pr=PAIRS[cur],s=pr.s,sg=signals(s),n=s.length-1,A=atr(s,14),last=s[n],p=pip(pr),ls=sg.m.length?sg.m[sg.m.length-1]:null;
+  var dif=Math.abs(sg.a[n]-sg.b[n])/A;
+  $('#stReg').textContent=dif>0.5?'Trending':'Ranging';
+  $('#stStop').textContent=(1.5*A/p).toFixed(1)+' pips';
+  if(ls){var dir=ls.side==='L'?1:-1,pl=(last.c-ls.px)*dir/p;$('#stPos').textContent=(dir>0?'Long ':'Short ')+(pl>=0?'+':'')+pl.toFixed(1)+' pips'}else{$('#stPos').textContent='Flat'}
+}
+function buildTicker(){
+  var t=$('#ticker');t.innerHTML='';
+  PAIRS.forEach(function(pr,i){var d=document.createElement('div');d.className='tk';d.innerHTML='<b>'+pr.k+'</b><span id="tp'+i+'"></span><i id="tc'+i+'"></i>';t.appendChild(d)});
+}
+function updateTicker(){
+  PAIRS.forEach(function(pr,i){var last=pr.s[pr.s.length-1],ch=(last.c-pr.s[0].o)/pr.s[0].o*100,c=$('#tc'+i);$('#tp'+i).textContent=last.c.toFixed(pr.d);c.textContent=(ch>=0?'+':'')+ch.toFixed(2)+'%';c.className=ch>=0?'up':'dn'})
+}
+function buildPairBtns(){
+  var box=$('#pairBtns');
+  PAIRS.slice(0,4).forEach(function(pr,i){var b=document.createElement('button');b.type='button';b.className='pairbtn';b.textContent=pr.k;b.setAttribute('aria-pressed',i===0?'true':'false');b.addEventListener('click',function(){cur=i;$$('.pairbtn').forEach(function(x,j){x.setAttribute('aria-pressed',j===i?'true':'false')});drawChart();updateStats()});box.appendChild(b)});
+}
+function tick(){
+  if(document.hidden)return;
+  PAIRS.forEach(function(pr){var s=pr.s,l=s[s.length-1];pr.i+=0.12;l.c+=(Math.random()-0.5+bias(pr.i))*pr.v*0.9;if(l.c>l.h)l.h=l.c;if(l.c<l.l)l.l=l.c;pr.t++;if(pr.t%10===0){s.push({o:l.c,h:l.c,l:l.c,c:l.c});s.shift()}});
+  drawChart();updateTicker();updateStats();
+}
+buildTicker();buildPairBtns();updateTicker();updateStats();drawChart();
+redrawers.push(drawChart);
+if(window.ResizeObserver)new ResizeObserver(function(){drawChart()}).observe(cv);else window.addEventListener('resize',drawChart);
+if(!reduce)setInterval(tick,900);
+
+/* session band */
+var SESS=[['Sydney',21,30],['Tokyo',0,9],['London',7,16],['New York',12,21]];
+var band=$('#sband');
+function seg(a,b,cls){return '<i class="seg'+(cls?' '+cls:'')+'" style="left:'+(a/24*100)+'%;width:'+((b-a)/24*100)+'%"></i>'}
+function buildBand(){
+  var h='<div class="sb-axis" aria-hidden="true">';
+  for(var t=0;t<=24;t+=3)h+='<span style="left:'+(t/24*100)+'%">'+pad(t)+'</span>';
+  h+='</div>';
+  SESS.forEach(function(s){var segs=s[2]>24?seg(s[1],24)+seg(0,s[2]-24):seg(s[1],s[2]);h+='<div class="sb-row"><span class="sb-name">'+s[0]+'</span><div class="sb-track">'+segs+'</div></div>'});
+  h+='<div class="sb-row"><span class="sb-name">Overlap</span><div class="sb-track">'+seg(12,16,'peak')+'</div></div>';
+  h+='<div class="sb-now" id="sbNow"><span id="sbNowLbl"></span></div>';
+  band.innerHTML=h;
+}
+function updateNow(){
+  var d=new Date(),u=d.getUTCHours()+d.getUTCMinutes()/60,f=u/24;
+  band.style.setProperty('--now',f.toFixed(4));
+  var nw=$('#sbNow');if(nw){nw.className='sb-now'+(f>0.8?' flip':'')}
+  var lbl=$('#sbNowLbl');if(lbl)lbl.textContent=pad(d.getUTCHours())+':'+pad(d.getUTCMinutes())+' UTC';
+  var open=SESS.filter(function(s){return (u>=s[1]&&u<s[2])||(u+24>=s[1]&&u+24<s[2])}).map(function(s){return s[0]});
+  var loc='--:--';try{loc=new Intl.DateTimeFormat([],{hour:'2-digit',minute:'2-digit'}).format(d)}catch(e){}
+  $('#roLocal').textContent=loc;
+  $('#roOpen').textContent=open.join(' and ')+(open.indexOf('London')>-1&&open.indexOf('New York')>-1?' (peak overlap)':'');
+  var names=[];$$('.panel').forEach(function(p){var ss=(p.getAttribute('data-sessions')||'').split(',');if(ss.indexOf('All')>-1||ss.some(function(x){return open.indexOf(x)>-1}))names.push(p.getAttribute('data-name'))});
+  $('#roBots').textContent=names.join(', ');
+}
+buildBand();updateNow();setInterval(updateNow,30000);
+
+/* bots: tabs and curves */
+function curve(svg){
+  var D=svg.dataset,seed=+D.seed,drift=+D.drift,vol=+D.vol,jp=+D.jump,js=+D.jsize,cmp=D.compare==='1';
+  var r=rng(seed),n=90,W=360,H=150,pts=[],base=[],e=0,b=0,i;
+  for(i=0;i<n;i++){e+=drift+vol*(r()+r()+r()-1.5);if(r()<jp)e+=js*(r()-0.35);pts.push(e);b+=drift*0.9+vol*2.4*(r()+r()+r()-1.5);if(r()<jp*1.5)b-=Math.abs(js)*1.6*r();base.push(b)}
+  var all=cmp?pts.concat(base):pts,mn=Math.min.apply(null,all),mx=Math.max.apply(null,all),p=12;
+  function Y(v){return p+(mx-v)/(mx-mn||1)*(H-2*p)}
+  function X(k){return k/(n-1)*W}
+  function path(a){var d='';for(var k=0;k<a.length;k++)d+=(k?'L':'M')+X(k).toFixed(1)+' '+Y(a[k]).toFixed(1);return d}
+  var out='';for(i=1;i<4;i++)out+='<line class="c-grid" x1="0" x2="'+W+'" y1="'+(H/4*i)+'" y2="'+(H/4*i)+'"/>';
+  if(cmp)out+='<path class="c-base" d="'+path(base)+'"/>';
+  out+='<path class="c-area" d="'+path(pts)+'L'+W+' '+H+'L0 '+H+'Z"/><path class="c-line" d="'+path(pts)+'"/>';
+  svg.innerHTML=out;
+}
+$$('.curve').forEach(curve);
+var tabs=$$('[role="tab"]'),panels=$$('.panel');
+function pick(i,focus){tabs.forEach(function(t,j){var on=j===i;t.setAttribute('aria-selected',on?'true':'false');t.tabIndex=on?0:-1;panels[j].hidden=!on});if(focus)tabs[i].focus()}
+tabs.forEach(function(t,i){
+  t.addEventListener('click',function(){pick(i,false)});
+  t.addEventListener('keydown',function(e){var k=e.key,n=tabs.length;if(k==='ArrowDown'||k==='ArrowRight'){e.preventDefault();pick((i+1)%n,true)}else if(k==='ArrowUp'||k==='ArrowLeft'){e.preventDefault();pick((i+n-1)%n,true)}else if(k==='Home'){e.preventDefault();pick(0,true)}else if(k==='End'){e.preventDefault();pick(n-1,true)}});
+});
+
+/* position size calculator */
+var REF={'EUR/USD':{r:1.0850,pv:function(){return 10}},'GBP/USD':{r:1.2710,pv:function(){return 10}},'AUD/USD':{r:0.6580,pv:function(){return 10}},'USD/JPY':{r:151.40,pv:function(r){return 1000/r}},'USD/CAD':{r:1.3680,pv:function(r){return 10/r}},'USD/CHF':{r:0.8810,pv:function(r){return 10/r}}};
+var usd=new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}),int=new Intl.NumberFormat('en-US');
+function calc(){
+  var bal=parseFloat($('#cBal').value),rk=parseFloat($('#cRisk').value),st=parseFloat($('#cStop').value),k=$('#cPair').value,ref=REF[k],pv=ref.pv(ref.r);
+  $('#oPip').textContent=usd.format(pv);
+  if(!(bal>0&&rk>0&&st>0)){$('#oLots').textContent='0.00';$('#oRisk').textContent=usd.format(0);$('#oUnits').textContent='0';$('#oReal').textContent=usd.format(0);$('#oNote').textContent='Enter a balance, a risk percentage and a stop distance above zero.';return}
+  var amt=bal*rk/100,raw=amt/(st*pv),lots=Math.floor(raw*100+1e-9)/100;
+  $('#oLots').textContent=lots.toFixed(2);$('#oRisk').textContent=usd.format(amt);$('#oUnits').textContent=int.format(Math.round(lots*100000));$('#oReal').textContent=usd.format(lots*st*pv);
+  $('#oNote').textContent=lots<0.01?'The risk amount is too small for the minimum 0.01 lot at this stop distance. Widen the risk or tighten the stop.':'Lot size is rounded down to the nearest 0.01 lot. Reference rate for '+k+': '+ref.r+'.';
+}
+$$('#calcForm input,#calcForm select').forEach(function(el){el.addEventListener('input',calc);el.addEventListener('change',calc)});
+$('#calcForm').addEventListener('submit',function(e){e.preventDefault()});
+calc();
+
+/* waitlist */
+var wf=$('#waitlist'),msg=$('#formMsg');
+wf.addEventListener('submit',function(e){
+  e.preventDefault();
+  var v=$('#wEmail').value.trim();
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)){msg.textContent='Enter a valid email address, for example name@example.com.';return}
+  window.PW&&PW.track('generate_lead',{method:'waitlist'});var ep=wf.getAttribute('data-endpoint');
+  if(!ep){msg.textContent='Preview mode: this form is not connected to a mailing list yet.';return}
+  msg.textContent='Sending...';
+  fetch(ep,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(Object.assign({email:v},window.PW?PW.attribution():{}))}).then(function(r){if(!r.ok)throw new Error('bad');msg.textContent='You are on the list. Check your inbox for the invite.';wf.reset()}).catch(function(){msg.textContent='The request failed. Try again in a moment.'});
+});
+})();
+</script>
+<script>/* Marketing IDs. Leave a value empty to keep that platform off. */
+window.PW_CONFIG = window.PW_CONFIG || {
+  gtm: "",
+  ga4: "",
+  metaPixel: "",
+  tiktok: "",
+  linkedin: "",
+  clarity: "",
+  plausibleDomain: ""
+};
+</script>
+<script>(function(){
+'use strict';
+var CFG=window.PW_CONFIG||{};
+function $(s,r){return (r||document).querySelector(s)}
+function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))}
+function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
+function pad(n){return (n<10?'0':'')+n}
+var dl=window.dataLayer=window.dataLayer||[];
+function gtag(){dl.push(arguments)}
+if(!window.gtag)window.gtag=gtag;
+gtag('consent','default',{ad_storage:'denied',analytics_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});
+
+var S={consent:store('pw-consent'),init:{},status:{},log:[]};
+
+/* platforms */
+function addScript(src,key,attrs){
+  var s=document.createElement('script');s.async=true;s.src=src;
+  if(attrs)Object.keys(attrs).forEach(function(k){s.setAttribute(k,attrs[k])});
+  S.status[key]='loading';
+  s.onload=function(){S.status[key]='loaded';renderStatus()};
+  s.onerror=function(){S.status[key]='blocked';renderStatus()};
+  document.head.appendChild(s);
+}
+var PLAT=[
+ {k:'gtm',label:'Google Tag Manager',use:'Container for other tags',id:CFG.gtm,load:function(id){dl.push({'gtm.start':Date.now(),event:'gtm.js'});addScript('https://www.googletagmanager.com/gtm.js?id='+encodeURIComponent(id),'gtm')}},
+ {k:'ga4',label:'Google Analytics 4',use:'Traffic and conversions',id:CFG.ga4,load:function(id){addScript('https://www.googletagmanager.com/gtag/js?id='+encodeURIComponent(id),'ga4');gtag('js',new Date());gtag('config',id)}},
+ {k:'meta',label:'Meta Pixel',use:'Facebook and Instagram ads',id:CFG.metaPixel,load:function(id){
+   var f=window,n;if(!f.fbq){n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=true;n.version='2.0';n.queue=[]}
+   addScript('https://connect.facebook.net/en_US/fbevents.js','meta');window.fbq('init',id);window.fbq('track','PageView')}},
+ {k:'tiktok',label:'TikTok Pixel',use:'TikTok ads',id:CFG.tiktok,load:function(id){
+   window.TiktokAnalyticsObject='ttq';var q=window.ttq=window.ttq||[];
+   q.methods=['page','track','identify','instances','debug','on','off','once','ready','alias','group','enableCookie','disableCookie'];
+   q.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};
+   q.methods.forEach(function(m){q.setAndDefer(q,m)});
+   var u='https://analytics.tiktok.com/i18n/pixel/events.js';q._i=q._i||{};q._i[id]=[];q._i[id]._u=u;q._t=q._t||{};q._t[id]=+new Date;q._o=q._o||{};q._o[id]={};
+   addScript(u+'?sdkid='+encodeURIComponent(id)+'&lib=ttq','tiktok');q.page()}},
+ {k:'linkedin',label:'LinkedIn Insight Tag',use:'LinkedIn ads',id:CFG.linkedin,load:function(id){window._linkedin_data_partner_ids=[id];addScript('https://snap.licdn.com/li.lms-analytics/insight.min.js','linkedin')}},
+ {k:'clarity',label:'Microsoft Clarity',use:'Heatmaps and recordings',id:CFG.clarity,load:function(id){window.clarity=window.clarity||function(){(window.clarity.q=window.clarity.q||[]).push(arguments)};addScript('https://www.clarity.ms/tag/'+encodeURIComponent(id),'clarity')}},
+ {k:'plausible',label:'Plausible',use:'Cookieless analytics',id:CFG.plausibleDomain,cookieless:true,load:function(id){window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)};addScript('https://plausible.io/js/script.js','plausible',{'data-domain':id,defer:'defer'})}}
+];
+var hasIds=PLAT.some(function(p){return !!p.id});
+function loadAll(){PLAT.forEach(function(p){if(!p.id||S.init[p.k])return;if(p.cookieless||S.consent==='granted'){S.init[p.k]=true;try{p.load(p.id)}catch(e){S.status[p.k]='blocked'}}});renderStatus()}
+
+/* event tracking */
+function track(name,params){
+  params=params||{};var ev={event:name};Object.keys(params).forEach(function(k){ev[k]=params[k]});
+  dl.push(ev);
+  try{
+    if(S.init.ga4)window.gtag('event',name,params);
+    if(S.init.meta)name==='generate_lead'?window.fbq('track','Lead'):window.fbq('trackCustom',name,params);
+    if(S.init.tiktok)window.ttq.track(name==='generate_lead'?'SubmitForm':name,params);
+    if(S.init.plausible)window.plausible(name,{props:params});
+    if(S.init.clarity)window.clarity('event',name);
+  }catch(e){}
+  var d=new Date(),li=document.createElement('li'),box=$('#evLog');
+  if(box){if(!S.log.length)box.innerHTML='';S.log.push(1);li.textContent=pad(d.getHours())+':'+pad(d.getMinutes())+':'+pad(d.getSeconds())+'  '+name+'  '+JSON.stringify(params);box.insertBefore(li,box.firstChild);while(box.children.length>12)box.removeChild(box.lastChild)}
+}
+
+/* attribution */
+var KEYS=['utm_source','utm_medium','utm_campaign','utm_term','utm_content','gclid','fbclid','ttclid','msclkid','li_fat_id','ref'];
+var cur={};try{var Q=new URLSearchParams(location.search);KEYS.forEach(function(k){var v=Q.get(k);if(v)cur[k]=v.slice(0,120)})}catch(e){}
+var first=null;try{first=JSON.parse(store('pw-first')||'null')}catch(e){}
+function persist(){if(S.consent==='granted'&&!first&&Object.keys(cur).length){first=cur;store('pw-first',JSON.stringify(cur))}}
+var tz='';try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||''}catch(e){}
+
+/* region from time zone */
+var SA=['Asia/Dhaka','Asia/Kolkata','Asia/Calcutta','Asia/Karachi','Asia/Colombo','Asia/Kathmandu','Asia/Katmandu','Asia/Thimphu'];
+var ME=['Asia/Dubai','Asia/Riyadh','Asia/Qatar','Asia/Kuwait','Asia/Bahrain','Asia/Muscat','Asia/Baghdad','Asia/Tehran','Asia/Jerusalem','Asia/Tel_Aviv','Asia/Beirut','Asia/Amman','Asia/Damascus','Asia/Aden'];
+var NA=['America/New_York','America/Chicago','America/Denver','America/Los_Angeles','America/Phoenix','America/Anchorage','America/Toronto','America/Vancouver','America/Edmonton','America/Winnipeg','America/Halifax','America/Detroit','America/Boise','Pacific/Honolulu'];
+function regionOf(z){
+  if(!z)return '';
+  if(z.indexOf('Europe/')===0)return 'Europe and United Kingdom';
+  if(SA.indexOf(z)>-1)return 'South Asia';
+  if(z.indexOf('Africa/')===0||ME.indexOf(z)>-1)return 'Middle East and Africa';
+  if(NA.indexOf(z)>-1||z.indexOf('US/')===0||z.indexOf('Canada/')===0)return 'North America';
+  if(z.indexOf('America/')===0)return 'Latin America';
+  if(z.indexOf('Asia/')===0||z.indexOf('Australia/')===0||z.indexOf('Pacific/')===0||z.indexOf('Indian/')===0)return 'Asia-Pacific';
+  return '';
+}
+var region=regionOf(tz);
+function lt(h){var n=new Date(),d=new Date(Date.UTC(n.getUTCFullYear(),n.getUTCMonth(),n.getUTCDate(),h%24,0));try{return new Intl.DateTimeFormat([],{hour:'2-digit',minute:'2-digit'}).format(d)}catch(e){return pad(h%24)+':00 UTC'}}
+(function geo(){
+  var note=$('#geoNote');if(!note||!tz)return;
+  var sess=[['Sydney',21,30],['Tokyo',0,9],['London',7,16],['New York',12,21]];
+  var times=sess.map(function(s){return s[0]+' '+lt(s[1])+' to '+lt(s[2])}).join(' | ');
+  var row=null;
+  if(region){$$('.tablewrap tbody tr').forEach(function(tr){var th=$('th',tr);if(th&&th.textContent.trim()===region){tr.classList.add('geo-hit');row=tr}})}
+  var h='';
+  if(region)h+='Your time zone is <strong>'+tz.replace(/_/g,' ')+'</strong>, so the highlighted row below is your region. ';
+  else h+='Your time zone is <strong>'+tz.replace(/_/g,' ')+'</strong>. ';
+  h+='Session hours in your local time: '+times+'. Hours shift by one when daylight saving changes.';
+  note.innerHTML=h;
+})();
+
+window.PW={track:track,attribution:function(){return {first_touch:first||cur,last_touch:cur,referrer:(document.referrer||'').slice(0,200),landing_page:location.pathname,page_url:location.href.split('#')[0],language:navigator.language||'',timezone:tz,region:region}}};
+
+/* consent */
+var banner=$('#consent');
+function setConsent(v){
+  S.consent=v;store('pw-consent',v);
+  var g=v==='granted'?'granted':'denied';
+  gtag('consent','update',{ad_storage:g,analytics_storage:g,ad_user_data:g,ad_personalization:g});
+  if(v==='granted'){persist();loadAll()}
+  if(banner)banner.hidden=true;renderStatus();
+}
+if(banner){
+  $('#cAccept').addEventListener('click',function(){setConsent('granted')});
+  $('#cDecline').addEventListener('click',function(){setConsent('denied')});
+  if(hasIds&&!S.consent)banner.hidden=false;
+}
+var cs=$('#cookieSettings');
+if(cs){cs.hidden=!hasIds;cs.addEventListener('click',function(){if(banner)banner.hidden=false;var a=$('#cAccept');if(a)a.focus()})}
+if(S.consent==='granted')gtag('consent','update',{ad_storage:'granted',analytics_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'});
+function mask(id){id=String(id);return id.length>6?id.slice(0,4)+'...'+id.slice(-2):id}
+function renderStatus(){
+  var tb=$('#statusTbl tbody');if(!tb)return;
+  tb.innerHTML=PLAT.map(function(p){
+    var label,cls;
+    if(!p.id){label='No ID set';cls='wait'}
+    else if(S.status[p.k]==='loaded'){label='Loaded';cls='ok'}
+    else if(S.status[p.k]==='blocked'){label='Blocked or failed to load';cls='bad'}
+    else if(S.init[p.k]){label='Loading';cls='wait'}
+    else{label='Waiting for consent';cls='wait'}
+    return '<tr><th scope="row">'+p.label+'</th><td>'+p.use+'</td><td class="mono">'+(p.id?mask(p.id):'-')+'</td><td><span class="st '+cls+'">'+label+'</span></td></tr>';
+  }).join('');
+}
+renderStatus();loadAll();
+
+/* behaviour events */
+document.addEventListener('click',function(e){
+  var t=e.target.closest&&e.target.closest('a.btn,button.btn');
+  if(t&&!t.closest('#utmForm')&&t.id!=='copyPage'&&t.id!=='cAccept'&&t.id!=='cDecline')track('cta_click',{label:(t.textContent||'').trim().slice(0,60),target:t.getAttribute('href')||''});
+  var tab=e.target.closest&&e.target.closest('[role="tab"]');
+  if(tab)track('bot_view',{bot:(tab.id||'').replace('tab-','')});
+});
+document.addEventListener('toggle',function(e){var d=e.target;if(d&&d.tagName==='DETAILS'&&d.open&&d.closest&&d.closest('.faq')){var s=$('summary',d);track('faq_open',{question:s?s.textContent.trim().slice(0,100):''})}},true);
+var ct=null,cn=0;
+var cf=$('#calcForm');
+if(cf)cf.addEventListener('input',function(){clearTimeout(ct);ct=setTimeout(function(){if(cn++<5)track('calculator_use',{pair:$('#cPair').value,risk_pct:$('#cRisk').value,stop_pips:$('#cStop').value})},1200)});
+var seen={};
+if('IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting&&!seen[en.target.id]){seen[en.target.id]=1;track('section_view',{section:en.target.id})}})},{threshold:.35});
+  $$('main section[id]').forEach(function(s){io.observe(s)});
+}
+var depths=[25,50,75,90],hit={},tick=false;
+window.addEventListener('scroll',function(){if(tick)return;tick=true;requestAnimationFrame(function(){tick=false;var h=document.documentElement.scrollHeight-innerHeight;if(h<=0)return;var p=scrollY/h*100;depths.forEach(function(d){if(p>=d&&!hit[d]){hit[d]=1;track('scroll_depth',{percent:d})}})})},{passive:true});
+
+/* copy helper */
+function copyText(text,node,msgEl){
+  function ok(){msgEl.textContent='Copied.'}
+  function fail(){try{var r=document.createRange();r.selectNodeContents(node);var s=getSelection();s.removeAllRanges();s.addRange(r)}catch(e){}msgEl.textContent='Selected. Press Ctrl+C or long-press to copy.'}
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(ok,fail)}else fail();
+}
+
+/* share */
+var pageUrl=location.href.split('#')[0];
+var shareText='Six AI forex bots, one per market session. Paper trade free first.';
+var enc=encodeURIComponent;
+var NETS=[
+ ['X','https://twitter.com/intent/tweet?text='+enc(shareText)+'&url='+enc(pageUrl)],
+ ['LinkedIn','https://www.linkedin.com/sharing/share-offsite/?url='+enc(pageUrl)],
+ ['Facebook','https://www.facebook.com/sharer/sharer.php?u='+enc(pageUrl)],
+ ['Reddit','https://www.reddit.com/submit?url='+enc(pageUrl)+'&title='+enc(shareText)],
+ ['Telegram','https://t.me/share/url?url='+enc(pageUrl)+'&text='+enc(shareText)],
+ ['WhatsApp','https://wa.me/?text='+enc(shareText+' '+pageUrl)]
+];
+var sg=$('#shareGrid');
+if(sg){NETS.forEach(function(n){var a=document.createElement('a');a.className='chip';a.href=n[1];a.target='_blank';a.rel='noopener noreferrer';a.textContent=n[0];a.addEventListener('click',function(){track('share',{network:n[0].toLowerCase()})});sg.appendChild(a)})}
+var cp=$('#copyPage');
+if(cp)cp.addEventListener('click',function(){var m=$('#copyMsg');if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(pageUrl).then(function(){m.textContent='Link copied.';track('share',{network:'copy'})},function(){m.textContent=pageUrl})}else m.textContent=pageUrl});
+
+/* campaign link builder */
+function slug(s){return String(s||'').trim().toLowerCase().replace(/[^a-z0-9_.\-]+/g,'-').replace(/^-+|-+$/g,'')}
+var out=$('#uOut'),ub=$('#uBase');
+if(ub){ub.value=pageUrl.split('?')[0]}
+function build(){
+  if(!out)return null;
+  var u;try{u=new URL(ub.value.trim())}catch(e){out.textContent='Enter a full page address that starts with https://';return null}
+  var p={utm_source:slug($('#uSource').value),utm_medium:slug($('#uMedium').value),utm_campaign:slug($('#uCampaign').value),utm_term:slug($('#uTerm').value),utm_content:slug($('#uContent').value)};
+  if(!p.utm_source||!p.utm_medium||!p.utm_campaign){out.textContent='Source, medium and campaign are required.';return null}
+  Object.keys(p).forEach(function(k){if(p[k])u.searchParams.set(k,p[k])});
+  out.textContent=u.toString();return p;
+}
+var uf=$('#utmForm');
+if(uf){
+  uf.addEventListener('submit',function(e){e.preventDefault()});
+  uf.addEventListener('input',build);
+  $$('#utmChips .chip').forEach(function(c){c.setAttribute('aria-pressed','false');c.addEventListener('click',function(){$$('#utmChips .chip').forEach(function(x){x.setAttribute('aria-pressed',x===c?'true':'false')});$('#uSource').value=c.getAttribute('data-src');$('#uMedium').value=c.getAttribute('data-med');build()})});
+  $('#uCopy').addEventListener('click',function(){var p=build();if(!p){$('#uMsg').textContent='Fix the highlighted fields first.';return}copyText(out.textContent,out,$('#uMsg'));track('utm_link_created',{source:p.utm_source,medium:p.utm_medium,campaign:p.utm_campaign})});
+  build();
+}
+})();
+</script>
+
+</body></html>
